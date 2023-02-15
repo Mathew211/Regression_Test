@@ -1,0 +1,24 @@
+{
+  "name": "regression_test",
+  "version": "1.0.0",
+  "description": "Test for Mediaexpert",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Mateusz Oliszewski",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.30.0"
+  },
+  "dependencies": {
+    "playwright-core": "^1.30.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathew211/Test_JS_ME.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mathew211/Test_JS_ME/issues"
+  },
+  "homepage": "https://github.com/Mathew211/Test_JS_ME#readme"
+}
