@@ -15,7 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mathew211/Test_JS_ME.git"
+    "url": "git+https://github.com/Mathew211/Test_JS_ME.git",
+    "user.email": "mateuszoliszewski@gmail.com",
+    "user.name": "Mateusz Oliszewski"
   },
   "bugs": {
     "url": "https://github.com/Mathew211/Test_JS_ME/issues"
