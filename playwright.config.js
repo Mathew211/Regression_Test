@@ -57,7 +57,7 @@ module.exports = defineConfig({
 
     module.exports = defineConfig({
       use: {
-        headless: true,
+        headless: false,
         viewport: { width: 1920, height: 720 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

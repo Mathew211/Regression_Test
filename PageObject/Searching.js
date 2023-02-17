@@ -13,12 +13,20 @@ exports.Searching = class Searching {
         return productID
     }
     async pressSearchingButton() {
-        const selectorNutton = '#section_header-desktop .search-input-button'
-        await this.page.locator(selectorNutton).click()
+       const selectorButton =  await this.page.locator('#section_header-desktop .search-input-button')
+       await selectorButton.click()
+        
+        
     }
     async searchAfterName() {
         const searchingInput = '#section_header-desktop .input-inner';
         const productID = 'Samsung'
+        await this.page.click(searchingInput);
+        await this.page.type(searchingInput, productID.toString());
+    }
+    async wrongSearching() {
+        const searchingInput = '#section_header-desktop .input-inner';
+        const productID = 'xxxxxxxxx'
         await this.page.click(searchingInput);
         await this.page.type(searchingInput, productID.toString());
     }
