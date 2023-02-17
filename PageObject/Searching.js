@@ -14,9 +14,7 @@ exports.Searching = class Searching {
     }
     async pressSearchingButton() {
        const selectorButton =  await this.page.locator('#section_header-desktop .search-input-button')
-       await selectorButton.click()
-        
-        
+       await this.page.keyboard.press('Enter');
     }
     async searchAfterName() {
         const searchingInput = '#section_header-desktop .input-inner';
