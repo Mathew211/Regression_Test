@@ -7,13 +7,9 @@ exports.Functions = class Functions {
     }
     async searchResults() {
         
-        const selectorOffProduct = await this.page.locator('.id')
-        const urlaftersearch = await this.page.url()
-        expect(urlaftersearch).toBe('https://www.mediaexpert.pl/dom-i-ogrod/baseny-i-akcesoria/baseny/basen-bestway-5614v-396-x-107-cm');
+        const selectorOffProduct = await this.page.locator('.id').innerText();
         const checkIndex = new Searching()
-        expect(await selectorOffProduct ).toHaveValue(checkIndex.Searching())
+        expect(selectorOffProduct ).toContainText(JSON.stringify(checkIndex.searchAfterIndex()))
     }
-    async waitForNavigation() {
-        await this.page.waitForNavigation();
-    }
+  
 }

@@ -16,10 +16,11 @@ test.afterAll(async () => {
 test('Cheack searching input after write index ', async ({ page }) => {
 
     const searching = new Searching(page)
-    await searching.searchAfterIndex()
-    await searching.pressSearchingButton()
+    await searching.searchAfterIndex();
+    await searching.pressSearchingButton();
+  
     const asserttest = new Functions(page);
-    await asserttest.searchResults()
+    await asserttest.searchResults();
    
 
 })
