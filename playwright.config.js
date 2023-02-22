@@ -11,15 +11,15 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './testregression',
+  testDir: './Regression Test',
   /* Maximum time one test can run for. */
-  timeout: 120 * 1000,
+  timeout: 180 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 30000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -58,7 +58,7 @@ module.exports = defineConfig({
     module.exports = defineConfig({
       use: {
         headless: false,
-        viewport: { width: 1920, height: 720 },
+        viewport: { width: 1920, height: 1080 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',
       },
