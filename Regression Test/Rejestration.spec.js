@@ -32,11 +32,11 @@ test.beforeEach(async ({ page }) => {
 // })
 
 
-test('Checking rejestration before write something', async ({ page }) => {
+test('Checking fields validation ', async ({ page }) => {
 
-    const emptyFieldsValid = new Rejestration(page)
-    await emptyFieldsValid.emptyFieldsValidAfterClear()
-    // const assertRejestratioFieldsAfterClear = new RejestrationAssertions(page);
-    // await assertRejestratioFieldsAfterClear.
+    const validFields = new Rejestration(page)
+    await validFields.validTooShortText()
+    const assertionOFValidFIELDS = new RejestrationAssertions(page);
+    await assertionOFValidFIELDS.validShortText();
 
 })

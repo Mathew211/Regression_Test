@@ -11,9 +11,10 @@ exports.ForgetPassword = class ForgetPassword {
         await this.page.waitForLoadState();
         await this.page.locator('.remind').click()
         await this.page.waitForLoadState();
-        await this.page.locator('. touched pristine required').click()
-        await this.page.type('.touched .input-inner', 'mateuszoliszewskitest@op.pl');
+        await this.page.locator('.is-floating').click()
+        await this.page.type('.is-floating', 'mateuszoliszewskitest@op.pl');
         await this.page.locator('.email-container .spark-button').click()
+        await this.page.waitForLoadState();
 
     }
     async wrongEmail() {

@@ -5,13 +5,14 @@ exports.ForgetPasswordAssertions = class ForgetPasswordAssertions {
     }
 
     async remindIsCorrect() {
-        const fisrtSentence = 'Dziękujemy za rejestrację.';
-        const firstSentenceHideNUTitle = await this.page.locator('.dialog-title .title:nth-of-type(1)').innerText();
-        expect(firstSentenceHideNUTitle).toBe(fisrtSentence);
+        const expectedUrl = 'https://www.mediaexpert.pl/forgot-password';
+        const checkWebsite = await this.page.url();
+        expect(checkWebsite).toEqual(expectedUrl);
 
-        const secondSentence = 'Zostałeś automatycznie zalogowany do Twojego konta.';
-        const secondSentenceHideNUTitle = await this.page.locator('.dialog-title .title:nth-of-type(2)').innerText();
-        expect(secondSentenceHideNUTitle).toBe(secondSentence);
+        const chearupText = 'Nie martw się, każdy czasem o czymś zapomina';
+        const chearupTextSelector = await this.page.locator('.is-medium').innerText();
+        expect(chearupTextSelector).toBe(chearupText);
+
     }
  
 
