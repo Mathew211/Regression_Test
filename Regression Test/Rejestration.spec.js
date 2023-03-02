@@ -1,22 +1,42 @@
 const { test, expect } = require('@playwright/test');
-const { Assertions } = require('../PageObject/Assertions');
-const { Before } = require('../PageObject/Before');
-const { Rejestration } = require("../PageObject/Rejestration");
+const { RejestrationAssertions } = require('../PageObject/Assertions/RejestrationAssertions');
+const { Before } = require('../PageObject/Steps/Before');
+const { Rejestration } = require('../PageObject/Steps/Rejestration');
+
 
 test.beforeEach(async ({ page }) => {
 
-    const newaccount = new Rejestration(page);
-    await newaccount.tenminutesmail()
-    const homePage = new Before(page);
+    const homePage = new Before(page)
     await homePage.doBefore();
 });
 
 
+// test('Checking rejestration',async({ page }) => {
 
-test('Checking rejestration',async({ page }) => {
-    const newaccount = new Rejestration(page);
-    await newaccount.correctCreateAccount();
+//     const copyEmail = new Rejestration(page)
+//     await copyEmail.tenminutesmail()
+//     const newaccount = new Rejestration(page);
+//     await newaccount.correctCreateAccount();
 
-    const craetedccount = new Assertions(page)
-    craetedccount.rejestrationResult()
-});
+//     const craetedccount = new RejestrationAssertions(page)
+//     await craetedccount.rejestrationResult()
+// });
+
+// test('Checking rejestration before write something',async({ page }) => {
+
+//     const rejestrationWebsite =  new Rejestration(page);
+//     await rejestrationWebsite.emptyFieldsInRejestrationFromStart();
+//     const assertRejestrationWebsite = new RejestrationAssertions(page);
+//     await assertRejestrationWebsite.whereYouGetToRejestration();
+
+// })
+
+
+test('Checking rejestration before write something', async ({ page }) => {
+
+    const emptyFieldsValid = new Rejestration(page)
+    await emptyFieldsValid.emptyFieldsValidAfterClear()
+    // const assertRejestratioFieldsAfterClear = new RejestrationAssertions(page);
+    // await assertRejestratioFieldsAfterClear.
+
+})

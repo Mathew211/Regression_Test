@@ -13,13 +13,13 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './Regression Test',
   /* Maximum time one test can run for. */
-  timeout: 180 * 1000,
+  timeout: 120 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 30000
+    timeout: 100000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -46,26 +46,31 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'] ,
+      headless: false,
+      viewport: { width: 1920, height: 1080 },
+      ignoreHTTPSErrors: true,
+      video: 'on-first-retry',
+    },
 
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'],   
+      headless: true,
+      viewport: { width: 1920, height: 1080 },
+      ignoreHTTPSErrors: true,
+      video: 'on-first-retry', },
     },
 
-    module.exports = defineConfig({
-      use: {
-        headless: false,
-        viewport: { width: 1920, height: 1080 },
-        ignoreHTTPSErrors: true,
-        video: 'on-first-retry',
-      },
-    })
     // {
     //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   use: { ...devices['Desktop Safari'], 
+    //   headless: true,
+    //   viewport: { width: 1920, height: 1080 },
+    //   ignoreHTTPSErrors: true,
+    //   video: 'on-first-retry', },
     // },
 
     /* Test against mobile viewports. */

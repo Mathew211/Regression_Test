@@ -1,4 +1,3 @@
-const { text, expect } = require('@playwright/test');
 exports.Searching = class Searching {
 
     constructor(page) {

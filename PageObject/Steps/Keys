@@ -1,0 +1,12 @@
+exports.Keys = class Keys {
+
+    constructor(page){
+        this.page = page
+    }
+
+    async focusAndClear(){
+       const clear =  await this.page.press('CTRL + A + BACKSPACE')
+       return clear; 
+        
+    }
+}

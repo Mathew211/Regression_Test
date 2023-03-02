@@ -1,4 +1,5 @@
 const { expect } = require('@playwright/test');
+
 exports.Before = class Before {
 
     constructor(page) {
@@ -22,6 +23,5 @@ exports.Before = class Before {
         await this.visit();
         await this.closeCookies();
     }
-
 
 }
