@@ -5,39 +5,63 @@ const { Login } = require('../PageObject/Steps/Login');
 
 
 
-test.beforeEach(async ({ page }) => {
+test.describe('Login prcess ', () => {
 
-    const homePage = new Before(page);
-    await homePage.doBefore();
-});
-// test('Check looging when is correct  ', async({page}) => {
 
-//     const newLogiging = new Login(page)    
-//     await newLogiging.correctLogin()
-//     const correctLogin = new LoginAssertions(page)
-//     await correctLogin.assertLoggingWhereIsCorrect()
+    test.beforeEach(async ({ page }) => {
 
-// })
-// test ('Check when login/password is wrong ', async({page}) => {
-//     const wrongLogin = new Login(page);
-//     await wrongLogin.wrongLogin()
-//     const assertWrongLogin = new LoginAssertions(page)
-//     await assertWrongLogin.assertLoggingWhereIsNoCorrect()
+        const homePage = new Before(page);
+        await homePage.doBefore();
+    });
+    test.afterEach(async ({ page }) => {
+        const homePage = new Before(page);
+        await homePage.visit()
+    })
 
-// })
+    // test('When login is correct ', async ({ page }) => {
+    //     const email = 'mateuszoliszewskitest@op.pl'
+    //     const password = 'Testy123!!'
+    //     const correctLoginProcess = new Login(page)
+    //     await correctLoginProcess.correctLogIn(email, password)
+    //     const correctLogin = new LoginAssertions(page)
+    //     await correctLogin.assertLoggingWhereIsCorrect()
 
-// test ('Check where fields are epmty ', async({page}) => {
-//     const emptyFields = new Login(page);
-//     await emptyFields.emptyFieldsDurningLogin();
-//     const assertEmptyFields = new LoginAssertions(page);
-//     await assertEmptyFields.assertWhereFieldsAreEmpty();
+    // })
+    // test('When login/password is wrong ', async ({ page }) => {
+    //     const email = 'mateuszoliszewkitest@op.pl'
+    //     const password = 'Testy23!!'
+    //     const wrongPasswordOrEmail = new Login(page);
+    //     await wrongPasswordOrEmail.wrongLogIn(email, password);
+    //     const assertIncorrectLoginOrPassword = new LoginAssertions(page);
+    //     await assertIncorrectLoginOrPassword.assertWhenEmailIOrPasswordWrong();
 
-// })
+    // })
+    // test('When fields are epmty ', async ({ page }) => {
+    //     const emptyFields = new Login(page);
+    //     await emptyFields.emptyFiedls();
+    //     const assertEmptyFields = new LoginAssertions(page);
+    //     await assertEmptyFields.assertWhereFieldsAreEmpty();
 
-test ('Check is eamil correct', async({page}) => {
-    const wrongEmail = new Login(page);
-    await wrongEmail.wrongEmail();
-    const assertInCorrectEmail = new LoginAssertions(page);
-    await assertInCorrectEmail.assertWhenEmailIsWrong();
+    // })
+    test('When eamil is incorrect', async ({ page }) => {
+        const email = 'testtest.com '
+        const wrongEmail = new Login(page);
+        await wrongEmail.wrongEmail(email)
+        const assertInCorrectEmail = new LoginAssertions(page);
+        await assertInCorrectEmail.assertWhenEmailIsNotCorrect();
+
+    })
 
 })
+
+
+
+
+
+// test ('Check is eamil correct', async({page}) => {
+//     const wrongEmail = new Login(page);
+//     await wrongEmail.wrongEmail();
+//     const assertInCorrectEmail = new LoginAssertions(page);
+//     await assertInCorrectEmail.assertWhenEmailIsWrong();
+
+// })

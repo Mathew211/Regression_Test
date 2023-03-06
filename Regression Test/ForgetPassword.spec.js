@@ -19,9 +19,6 @@ test.describe('Remind prcess ', () => {
         await homePage.visit()
     })
 
-
-
-
     test('When remind process is correct', async ({ page }) => {
         const email = 'mateuszoliszewskitest@op.pl';
         reimindProcessCorrect = new ForgetPassword(page);

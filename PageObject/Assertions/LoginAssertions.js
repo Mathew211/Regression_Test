@@ -4,47 +4,51 @@ exports.LoginAssertions = class LoginAssertions {
 
     constructor(page) {
         this.page = page
+        this.expectedUrl = 'https://www.mediaexpert.pl/profile';;
+        this.expectionsWelcomeMessage = 'Witaj Mateusz Oliszewski';
+        this.expectionsMessageSelector = '.headline.is-subsection'
+        this.inCorrectTextMessage = 'Nieprawidłowa nazwa użytkownika lub hasło.'
+        this.inCorrectTextMessageSelector = '.alert-content';
+        this.emailFieldIsReqiueredMessage = 'Podaj e-mail';
+        this.emailFieldIsReqiueredSelector = '.field-email .is-tiny';
+        this.passwordFieldIsReqiueredMessage = 'Pole Hasło jest wymagane';
+        this.passwordFieldIsReqiueredSelector = '.form-password .is-tiny';
+        this.incorrectEmailMessage = 'Podaj poprawny adres e-mail';
+        this.incorrectEmailSekector = '.spark-form-errors .is-tiny'
+
     }
 
     async assertLoggingWhereIsCorrect() {
 
-        const expectedUrl = 'https://www.mediaexpert.pl/profile';
+
         const checkWebsite = await this.page.url();
-        expect(checkWebsite).toEqual(expectedUrl);
+        expect(checkWebsite).toEqual(this.expectedUrl);
 
-        const welcome = await this.page.locator('.headline.is-subsection').innerText()
-        const expectedWelcome = 'Witaj Mateusz Oliszewski';
-        expect(welcome).toContain(expectedWelcome);
+        const welcome = await this.page.locator(this.expectionsMessageSelector).innerText()
+        expect(welcome).toContain(this.expectionsWelcomeMessage);
 
     }
 
-    async assertWhenEmailIsWrong() {
+    async assertWhenEmailIOrPasswordWrong() {
 
-        const inCorrectEmail = await this.page.locator('.spark-form-errors .is-tiny').innerText()
-        const inCorrectText = 'Podaj poprawny adres e-mail';
-        expect(inCorrectEmail).toContain(inCorrectText);
+        const inCorrectEmail = await this.page.locator(this.inCorrectTextMessageSelector).innerText()
+        expect(inCorrectEmail).toContain(this.inCorrectTextMessage);
 
     }
 
     async assertWhereFieldsAreEmpty() {
-        const alertEmptyName = await this.page.locator('.field-email .is-tiny').innerText()
-        const nameText = 'Podaj e-mail';
-        expect(alertEmptyName).toContain(nameText);
+        const alertEmptyName = await this.page.locator(this.emailFieldIsReqiueredSelector).innerText()
+        expect(alertEmptyName).toContain(this.emailFieldIsReqiueredMessage);
 
-        const alertEmptyPass = await this.page.locator('.form-password .is-tiny').innerText()
-        const passText = 'Pole Hasło jest wymagane';
-        expect(alertEmptyPass).toContain(passText);
+        const alertEmptyPass = await this.page.locator(this.passwordFieldIsReqiueredSelector).innerText()
+        expect(alertEmptyPass).toContain(this.passwordFieldIsReqiueredMessage);
     }
 
 
-    async assertWhereFieldsAreEmpty() {
-        const alertEmptyName = await this.page.locator('.field-email .is-tiny').innerText()
-        const nameText = 'Podaj e-mail';
-        expect(alertEmptyName).toContain(nameText);
+    async assertWhenEmailIsNotCorrect() {
+        const alertEmptyName = await this.page.locator(this.incorrectEmailSekector).innerText()
+        expect(alertEmptyName).toContain(this.incorrectEmailMessage);
 
-        const alertEmptyPass = await this.page.locator('.form-password .is-tiny').innerText()
-        const passText = 'Pole Hasło jest wymagane';
-        expect(alertEmptyPass).toContain(passText);
     }
 
 
