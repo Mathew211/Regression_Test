@@ -1,7 +1,9 @@
 exports.Login = class Login {
     constructor(page) {
         this.page = page
+        this.accountHeaderSelector = 
     }
+
     async correctLogin() {
         await this.page.locator('#section_header-desktop .account').hover({ force: true });
         await this.page.locator('.icon-left.is-secondary.is-small.spark-button').click();

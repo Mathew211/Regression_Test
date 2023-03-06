@@ -1,26 +1,49 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, chromium } = require('@playwright/test');
 const { ForgetPasswordAssertions } = require('../PageObject/Assertions/ForgetPasswordAssertions');
 const { Before } = require('../PageObject/Steps/Before');
 const { ForgetPassword } = require('../PageObject/Steps/ForgetPassword');
 
 
+test.describe('Remind prcess ', () => {
+
+    let reimindProcessCorrect
+    let reimindProcessIsNotCorrect
+
+    test.beforeEach(async ({ page }) => {
+
+        const homePage = new Before(page);
+        await homePage.doBefore();
+    });
+    test.afterEach(async ({ page }) => {
+        const homePage = new Before(page);
+        await homePage.visit()
+    })
 
 
-test.beforeEach(async ({ page }) => {
 
-    const homePage = new Before(page);
-    await homePage.doBefore();
-});
 
-// test ('Check website wchich remind you your password ', async({page}) => {
-//   const forgetPassword = new ForgetPassword(page)
-//   await forgetPassword.forgetPassworDontWorry()
-//   const remindisCorrect = new ForgetPasswordAssertions(page)
-//   await remindisCorrect.remindIsCorrect()
-// })
-test ('Check on remind website when email is wrong   ', async({page}) => {
-    const wrongEmail = new ForgetPassword(page)
-    await wrongEmail.wrongEmail()
-    const remindisEmailIncorrect = new ForgetPasswordAssertions(page)
-    await remindisEmailIncorrect.wrongRemindEmail()
-  })
+    test('When remind process is correct', async ({ page }) => {
+        const email = 'mateuszoliszewskitest@op.pl';
+        reimindProcessCorrect = new ForgetPassword(page);
+        await reimindProcessCorrect.remindProcessCorrect(email);
+
+        const remindisCorrect = new ForgetPasswordAssertions(page)
+        await remindisCorrect.remindIsCorrect()
+
+    })
+    test('When user write wrong email address', async ({ page }) => {
+        reimindProcessIsNotCorrect = new ForgetPassword(page);
+        await reimindProcessIsNotCorrect.remindProcessIsNotCorrect()
+
+        const remindisNoCorrect = new ForgetPasswordAssertions(page);
+        await remindisNoCorrect.wrongRemindEmail();
+
+    })
+
+})
+
+
+
+
+
+

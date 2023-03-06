@@ -3,24 +3,26 @@ exports.ForgetPasswordAssertions = class ForgetPasswordAssertions {
 
     constructor(page) {
         this.page = page
+        this.expectedUrl = 'https://www.mediaexpert.pl/forgot-password';
+        this.successTextMessage = 'Jeżeli podany adres e-mail jest wykorzystywany w aplikacji, wysłaliśmy na niego link niezbędny do resetu hasła.';
+        this.successMessageSelector = '.successed .is-regular'
+        this.alertTextMessage =  'Podaj poprawny adres e-mail';
+        this.alertTextMessageSelector = '.spark-form-errors .is-tiny';
     }
 
     async remindIsCorrect() {
-        const expectedUrl = 'https://www.mediaexpert.pl/forgot-password';
         const checkWebsite = await this.page.url();
-        expect(checkWebsite).toEqual(expectedUrl);
+        expect(checkWebsite).toEqual(this.expectedUrl);
 
-        const chearupText = 'Jeżeli podany adres e-mail jest wykorzystywany w aplikacji, wysłaliśmy na niego link niezbędny do resetu hasła.';
-        const chearupTextSelector = await this.page.locator('.successed .is-regular').innerText();
-        expect(chearupTextSelector).toContain(chearupText);
+        const chearupTextSelector = await this.page.locator( this.successMessageSelector).innerText();
+        expect(chearupTextSelector).toContain( this.successTextMessage);
 
     }
  
     async wrongRemindEmail() {
 
-        const chearupText = 'Podaj poprawny adres e-mail';
-        const chearupTextSelector = await this.page.locator('.spark-form-errors .is-tiny').innerText();
-        expect(chearupTextSelector).toContain(chearupText);
+        const chearupTextSelector = await this.page.locator( this.alertTextMessageSelector).innerText();
+        expect(chearupTextSelector).toContain( this.alertTextMessage);
 
     }
 

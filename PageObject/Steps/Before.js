@@ -1,9 +1,8 @@
-const { expect } = require('@playwright/test');
-
 exports.Before = class Before {
 
     constructor(page) {
         this.page = page;
+        this.buttonSelector = '.cookie-wrapper .spark-button';
     }
 
     async visit() {
@@ -12,10 +11,9 @@ exports.Before = class Before {
 
     async closeCookies() {
 
-        const buttonSelector = '.cookie-wrapper .spark-button';
-        await this.page.locator(buttonSelector)
-        await this.page.waitForSelector(buttonSelector, { visible: true });
-        await this.page.click(buttonSelector);
+        await this.page.locator(this.buttonSelector)
+        await this.page.waitForSelector(this.buttonSelector, { visible: true });
+        await this.page.click(this.buttonSelector);
     }
 
 
