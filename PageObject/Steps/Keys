@@ -1,12 +1,27 @@
-exports.Keys = class Keys {
+// exports.Keys = class Keys {
 
-    constructor(page){
-        this.page = page
-    }
+//     constructor(page) {
+//         this.page = page
+//     }
 
-    async focusAndClear(){
-       const clear =  await this.page.press('CTRL + A + BACKSPACE')
-       return clear; 
-        
-    }
-}
+//     async selectorNameToClean() {
+//         const elementHandle = await page.locator('.form .is-floating:nth-of-type(2) .input-inner');
+//     }
+//     async selectorSurNameToClean() {
+//         const elementHandle = await page.locator('.form .is-floating:nth-of-type(2) .input-inner');
+//     }
+//     async selectorEmailToClean() {
+//         const elementHandle = await page.locator('.form .is-floating:nth-of-type(2) .input-inner');
+//     }
+//     async selectorNameToClean() {
+//         const elementHandle = await page.locator('.form .is-floating:nth-of-type(2) .input-inner');
+//     }
+//     async clearInputs() {
+
+//         await this.page.click({ clickCount: 3 }); // zaznacz całą zawartość pola
+//         await this.page.press('Backspace'); // usuń zawartość
+//     }
+
+
+
+// }

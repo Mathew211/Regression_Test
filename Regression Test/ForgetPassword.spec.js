@@ -4,7 +4,7 @@ const { Before } = require('../PageObject/Steps/Before');
 const { ForgetPassword } = require('../PageObject/Steps/ForgetPassword');
 
 
-test.describe('Remind prcess ', () => {
+test.describe('Remind process ', () => {
 
     let reimindProcessCorrect
     let reimindProcessIsNotCorrect

@@ -5,7 +5,7 @@ const { Login } = require('../PageObject/Steps/Login');
 
 
 
-test.describe('Login prcess ', () => {
+test.describe('Login process ', () => {
 
 
     test.beforeEach(async ({ page }) => {
@@ -58,10 +58,3 @@ test.describe('Login prcess ', () => {
 
 
 
-// test ('Check is eamil correct', async({page}) => {
-//     const wrongEmail = new Login(page);
-//     await wrongEmail.wrongEmail();
-//     const assertInCorrectEmail = new LoginAssertions(page);
-//     await assertInCorrectEmail.assertWhenEmailIsWrong();
-
-// })

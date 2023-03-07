@@ -2,42 +2,39 @@ exports.Searching = class Searching {
 
     constructor(page) {
         this.page = page
-        this.name = 'Search';
+        this.searchingInputSelector = '#section_header-desktop .input-inner';
+        this.searchingButtonSelector = '#section_header-desktop .search-input-button'
     }
-    async searchAfterIndexWhenRouteISOnProducTCard() {
-        const searchingInput = '#section_header-desktop .input-inner';
-        await this.page.waitForLoadState("networkidle");
-        await this.page.locator(searchingInput).click();
-        await this.page.fill(searchingInput,'487662');
+
+    async clickSearchingInput() {
+
+        await this.page.locator(this.searchingInputSelector).click();
     }
-    async searchAfterIndexWhenRouteIsOnListing() {
-        const searchingInput = '#section_header-desktop .input-inner';
-        await this.page.waitForLoadState("networkidle");
-        await this.page.locator(searchingInput).click();
-        await this.page.fill(searchingInput,'123421');
+
+    async fillSearchingInput(text) {
+
+        await this.page.fill(this.searchingInputSelector, text);;
     }
 
     async pressSearchingButton() {
-        const selectorButton = await this.page.locator('#section_header-desktop .search-input-button')
-        await this.page.keyboard.press('Enter');
+        await this.page.locator(this.searchingButtonSelector).click();
         await this.page.waitForLoadState('load');
     }
-    async searchAfterName() {
-        const searchingInput = '#section_header-desktop .input-inner';
-        const productID = 'Samsung'
-        await this.page.click(searchingInput);
-        await this.page.type(searchingInput, productID.toString());
+
+    async searchingCheck(text) {
+
+        await this.clickSearchingInput()
+        await this.fillSearchingInput(text)
+        await this.pressSearchingButton()
     }
-    async searchAfterFullName() {
-        const searchingInput = '#section_header-desktop .input-inner';
-        const productID = 'Telewizor SAMSUNG QE55Q77B 55" QLED 4K 120HZ Tizen TV'
-        await this.page.click(searchingInput);
-        await this.page.type(searchingInput, productID.toString());
+
+    async checkSuggestionsProductsByLetters(text) {
+        await this.clicksEARCHINGiNPUT()
+        await this.fillSearchingInput(text)
     }
-    async wrongSearching() {
-        const searchingInput = '#section_header-desktop .input-inner';
-        const productID = 'qyxzaseq'
-        await this.page.click(searchingInput);
-        await this.page.type(searchingInput, productID.toString());
+
+    async whenSuggesterDosentFIndAnything(text) {
+        await this.clicksEARCHINGiNPUT()
+        await this.fillSearchingInput(text)
     }
 }
