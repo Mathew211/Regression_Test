@@ -1,65 +1,73 @@
 const { test, expect } = require('@playwright/test');
-const { SearchAssertions } = require('../Assertions/SearchAssertions');
+const { SearchAssertions } = require('../PageObject/Assertions/SearchAssertions');
+const { After } = require('../PageObject/Steps/After');
 const { Before } = require('../PageObject/Steps/Before');
 const { Searching } = require('../PageObject/Steps/Searching');
 
 
 
 
-test.beforeEach(async ({ page }) => {
+test.describe('Searching  status ', () => {
 
-    const homePage = new Before(page);
-    await homePage.doBefore();
+    let searchingCheck
 
-});
 
-test.afterAll(async () => {
-    console.log('Test done ');
-});
+    test.beforeEach(async ({ page }) => {
 
-test('Cheack searching input after written index ', async ({ page }) => {
+        const homePage = new Before(page);
+        await homePage.doBefore();
 
-    const searching = new Searching(page);
-    await searching.searchAfterIndexWhenRouteISOnProducTCard();
-    await searching.pressSearchingButton();
+    });
+    test.afterEach(async ({ page }) => {
+        const homePage = new Before(page);
+        await homePage.visit();
+    })
 
-    const asserttest = new SearchAssertions(page);
-    await asserttest.searchResultsCaseONe();
-})
-test('Cheack searching input after written index when route is on the listing  ', async ({ page }) => {
+    test.afterAll(async ({ page }) => {
+        const closePage = new After(page)
+        await closePage.close()
 
-    const searching = new Searching(page)
-    await searching.searchAfterIndexWhenRouteIsOnListing();
-    await searching.pressSearchingButton();
+    })
 
-    const asserttest = new SearchAssertions(page);
-    await asserttest.searchResultsCaseTwo();
-})
-test('Cheack searching input after written name when route is on the listing  ', async ({ page }) => {
+    // test('Searchign by ID bu route is on the product card ', async ({ page }) => {
+    //     const id = '465939'
+    //     searchingCheck = new Searching(page);
+    //     await searchingCheck.searchingCheck(id)
 
-    const searching = new Searching(page)
-    await searching.searchAfterName();
-    await searching.pressSearchingButton();
+    //     const asserttest = new SearchAssertions(page)
+    //     await asserttest.searchResultsByID();
+    // })
+    // test('Searching by ID but route is ont the listing  ', async ({ page }) => {
+    //     const id = '111111'
+    //     searchingCheck = new Searching(page)
+    //     await searchingCheck.searchingCheck(id)
 
-    const asserttest = new SearchAssertions(page);
-    await asserttest.searchResultsCaseThree();
-})
-test('Cheack searching input after written full name when route is on product card  ', async ({ page }) => {
+    //     const asserttest = new SearchAssertions(page);
+    //     await asserttest.searchResultsCaseTwo();
+    // })
+    // test('Searching by brand but route is on the listing', async ({ page }) => {
+    //     const brand = 'Samsung'
+    //     searchingCheck = new Searching(page)
+    //     await searchingCheck.searchingCheck(brand)
 
-    const searching = new Searching(page)
-    await searching.searchAfterFullName();
-    await searching.pressSearchingButton();
+    //     const asserttest = new SearchAssertions(page);
+    //     await asserttest.searchResultsCaseThree();
+    // })
+    test('Searching by full name of product  ', async ({ page }) => {
+        const fullname = 'Telewizor SAMSUNG QE55Q77B 55" QLED 4K 120HZ Tizen TV'
+        searchingCheck = new Searching(page)
+        await searchingCheck.searchingCheck(fullname)
 
-    const asserttest = new SearchAssertions(page);
-    await asserttest.searchResultsCaseFour();
-})
-test('Cheacking wrong searching  ', async ({ page }) => {
+        const asserttest = new SearchAssertions(page);
+        await asserttest.searchResultsCaseFour();
+    })
+    // test('Cheacking wrong searching  ', async ({ page }) => {
+    //     const unexpectedname = 'xxxxxxxxxxxxxxxxxxxxxxx'
+    //     searchingCheck = new Searching(page)
+    //     await searchingCheck.searchingCheck(unexpectedname)
 
-    const searching = new Searching(page)
-    await searching.wrongSearching();
-    await searching.pressSearchingButton();
+    //     const asserttest = new SearchAssertions(page);
+    //     await asserttest.searchResultsCaseFive();
 
-    const asserttest = new SearchAssertions(page);
-    await asserttest.searchResultsCaseFive();
- 
+    // })
 })
