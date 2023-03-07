@@ -17,6 +17,7 @@ exports.Before = class Before {
     }
 
 
+
     async doBefore() {
         await this.visit();
         await this.closeCookies();
