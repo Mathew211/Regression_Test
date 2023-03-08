@@ -4,6 +4,7 @@ exports.Searching = class Searching {
         this.page = page
         this.searchingInputSelector = '#section_header-desktop .input-inner';
         this.searchingButtonSelector = '#section_header-desktop .search-input-button'
+
     }
 
     async clickSearchingInput() {
@@ -14,27 +15,34 @@ exports.Searching = class Searching {
     async fillSearchingInput(text) {
 
         await this.page.fill(this.searchingInputSelector, text);;
+        await this.page.waitForLoadState('networkidle')
     }
+
 
     async pressSearchingButton() {
         await this.page.locator(this.searchingButtonSelector).click();
-        await this.page.waitForLoadState('load');
+        await this.page.waitForLoadState('networkidle')
+    }
+    async waitForLoad() {
+        await this.page.waitForLoadState('networkidle')
     }
 
     async searchingCheck(text) {
 
-        await this.clickSearchingInput()
-        await this.fillSearchingInput(text)
-        await this.pressSearchingButton()
+        await this.clickSearchingInput();
+        await this.fillSearchingInput(text);
+        await this.pressSearchingButton();
     }
 
-    async checkSuggestionsProductsByLetters(text) {
-        await this.clicksEARCHINGiNPUT()
-        await this.fillSearchingInput(text)
+    async checkSuggester(text) {
+        await this.clickSearchingInput();
+        await this.fillSearchingInput(text);
+
     }
 
     async whenSuggesterDosentFIndAnything(text) {
-        await this.clicksEARCHINGiNPUT()
-        await this.fillSearchingInput(text)
+        await this.clickSearchingInput();
+        await this.fillSearchingInput(text);
+        await this.waitForLoad()
     }
 }

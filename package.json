@@ -8,7 +8,8 @@
   "author": "Mateusz Oliszewski",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.30.0"
+    "@playwright/test": "^1.30.0",
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "playwright-core": "^1.30.0"
