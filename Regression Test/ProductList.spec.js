@@ -14,13 +14,22 @@ test.describe('Routing to ProductList by using menu ', () => {
         await homePage.doBefore();
     })
 
-    test('Listing route  ', async ({ page }) => {
+    // test('Listing route  ', async ({ page }) => {
 
-        const listing = new ProducList(page);
-        await listing.roouteToProductList();
-        const listingAssertion = new ProductListAssertion(page);
-        await listingAssertion.productListRoutingAssertion()
+    //     listing = new ProducList(page);
+    //     await listing.roouteToProductList();
+    //     const listingAssertion = new ProductListAssertion(page);
+    //     await listingAssertion.productListRoutingAssertion()
+
+    // })
+
+    test('Using filter on the listing   ', async ({ page }) => {
+
+        listing = new ProducList(page)
+        await listing.selectYwoCheckboxes();
+        const listinassertIsFileterActive = new ProductListAssertion(page);
+        await listinassertIsFileterActive.fileterIsActiveOnProductList()
+
 
     })
-
 })
