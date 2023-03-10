@@ -13,13 +13,13 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './Regression Test',
   //   /* Maximum time one test can run for. */
-  timeout: 360 * 1000,
+  timeout: 240 * 1000,
   expect: {
     //     /**
     //      * Maximum time expect() should wait for the condition to be met.
     //      * For example in `await expect(locator).toHaveText();`
     //      */
-    timeout: 180000
+    // timeout: 180000
   },
   //   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -48,7 +48,7 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
+        headless: false,
         viewport: { width: 1920, height: 1080 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',
@@ -60,7 +60,7 @@ module.exports = defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: false,
+        headless: true,
         viewport: { width: 1920, height: 1080 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

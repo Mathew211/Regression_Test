@@ -21,34 +21,34 @@ exports.SearchAssertions = class SearchAssertions {
     async searchResultsByIDRouteToProduct() {
 
         const selectorOfProduct = await this.page.locator(this.productIDSelector).innerText();
-        expect(selectorOfProduct).toContain(this.expectedIndexWchichRouteToProductCard)
+        expect(selectorOfProduct).toBe(this.expectedIndexWchichRouteToProductCard)
     }
     async searchResultsCaseTwo() {
 
         const selectorofListingName = await this.page.locator(this.nameOfListingSelector).innerText();
-        expect(selectorofListingName).toContain(this.expectedIndexWchichRouteToListing)
+        expect(selectorofListingName).toBe(this.expectedIndexWchichRouteToListing)
     }
     async searchResultsCaseThree() {
 
         const selectorofListingName = await this.page.locator(this.nameOfListingSelector).innerText();
-        expect(selectorofListingName).toContain(this.nameOfBrand)
+        expect(selectorofListingName).toBe(this.nameOfBrand)
     }
     async searchResultsCaseFour() {
 
         const selectroProductName = await this.page.locator(this.nameOfProductSelector).innerText();
-        expect(selectroProductName).toContain(this.nameOfFullProduct)
+        expect(selectroProductName).toBe(this.nameOfFullProduct)
     }
     async searchResultsCaseFive() {
 
         const selectorOfIncorectSearch = await this.page.locator(this.messageWhenSearchinDoestFindAnythingSelector).innerText();
-        expect(selectorOfIncorectSearch).toContain(this.messageWhenSearchinDoestFindAnything)
+        expect(selectorOfIncorectSearch).toBe(this.messageWhenSearchinDoestFindAnything)
 
     }
 
     async searchlist() {
 
         const contaiinsearchlist = await this.page.locator(this.sugesterHeaderSelector).innerText()
-        expect(contaiinsearchlist).toContain(this.titleOfSearchedProduct)
+        expect(contaiinsearchlist).toBe(this.titleOfSearchedProduct)
 
     }
 

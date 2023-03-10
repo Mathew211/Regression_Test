@@ -15,14 +15,14 @@ exports.ForgetPasswordAssertions = class ForgetPasswordAssertions {
         expect(checkWebsite).toEqual(this.expectedUrl);
 
         const chearupTextSelector = await this.page.locator(this.successMessageSelector).innerText();
-        expect(chearupTextSelector).toContain(this.successTextMessage);
+        expect(chearupTextSelector).toBe(this.successTextMessage);
 
     }
 
     async wrongRemindEmail() {
 
         const chearupTextSelector = await this.page.locator(this.alertTextMessageSelector).innerText();
-        expect(chearupTextSelector).toContain(this.alertTextMessage);
+        expect(chearupTextSelector).toBe(this.alertTextMessage);
 
     }
 

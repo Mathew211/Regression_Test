@@ -25,29 +25,38 @@ exports.LoginAssertions = class LoginAssertions {
         expect(checkWebsite).toEqual(this.expectedUrl);
 
         const welcome = await this.page.locator(this.expectionsMessageSelector).innerText();
-        expect(welcome).toContain(this.expectionsWelcomeMessage);
+        expect(welcome).toBe(this.expectionsWelcomeMessage);
 
     }
 
     async assertWhenEmailIOrPasswordWrong() {
 
         const inCorrectEmail = await this.page.locator(this.inCorrectTextMessageSelector).innerText();
-        expect(inCorrectEmail).toContain(this.inCorrectTextMessage);
+        expect(inCorrectEmail).toBe(this.inCorrectTextMessage);
+
+        const borderColorStyle = await this.page.evaluate(() => {
+            const element = document.querySelector('.is-closable.is-error.spark-alert');
+            const style = window.getComputedStyle(element);
+            return style.borderColor;
+        });
+        expect(borderColorStyle).toBe('rgb(208, 0, 0)');
+
+
 
     }
 
     async assertWhereFieldsAreEmpty() {
         const alertEmptyName = await this.page.locator(this.emailFieldIsReqiueredSelector).innerText();
-        expect(alertEmptyName).toContain(this.emailFieldIsReqiueredMessage);
+        expect(alertEmptyName).toBe(this.emailFieldIsReqiueredMessage);
 
         const alertEmptyPass = await this.page.locator(this.passwordFieldIsReqiueredSelector).innerText();
-        expect(alertEmptyPass).toContain(this.passwordFieldIsReqiueredMessage);
+        expect(alertEmptyPass).toBe(this.passwordFieldIsReqiueredMessage);
     }
 
 
     async assertWhenEmailIsNotCorrect() {
         const alertEmptyName = await this.page.locator(this.incorrectEmailSekector).innerText();
-        expect(alertEmptyName).toContain(this.incorrectEmailMessage);
+        expect(alertEmptyName).toBe(this.incorrectEmailMessage);
 
     }
 
