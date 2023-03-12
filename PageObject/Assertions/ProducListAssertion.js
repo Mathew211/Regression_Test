@@ -31,7 +31,11 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareIsActiveSelector: 'a > .is-small',
             oneItmeInCompare: 'span:nth-of-type(7) > .offer-box > .content > .column-left > a > .compare-link-text.label',
             secondIntemInCOmpare: 'span:nth-of-type(5) > .offer-box > .content > .column-left > a > .compare-link-text.label',
-            compareNameProducts: '.is-subsection'
+            compareNameProducts: '.is-subsection',
+            firstGroupProduct: '.ui-tabs-navigation .ui-tabs-item:nth-of-type(1)',
+            secondGropuProduct: '.ui-tabs-item:nth-of-type(2) .ui-tabs-link',
+            firstNameOfProductnCompare: '.product:nth-of-type(2) .is-tiny',
+            secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny'
         };
 
         this.expectetion = {
@@ -49,7 +53,12 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareText: 'Porównaj',
             textForOneItemInCompare: 'W porównaniu (1 z 4)',
             textForTwoItemsInCompare: 'W porównaniu (2 z 4)',
-            compareNameProductsText: 'Smartfony'
+            compareNameProductsText: 'Smartfony',
+            firstproductGrouppNameCompare: 'Laptopy (2)',
+            secondProductGriuoNameCompare: 'Smartfony (2)',
+            firstNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
+            secondNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny'
+
         }
 
         this.expectURL = {
@@ -59,8 +68,6 @@ exports.ProductListAssertion = class ProductListAssertion {
             afterUseFIlter: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/samsung/5g_tak',
             wishList: 'https://www.mediaexpert.pl/ulubione/storage',
         }
-
-
     }
 
 
@@ -205,8 +212,25 @@ exports.ProductListAssertion = class ProductListAssertion {
 
     }
 
+    async assertCompareInsideWithTwoGroups() {
+
+        const checkWebsite = await this.page.url();
+        expect(checkWebsite).toEqual(this.expectURL.compare);
+
+        const firstGropuCompare = await this.page.locator(this.selector.firstGroupProduct).innerText();
+        expect(firstGropuCompare).toBe(this.expectetion.firstproductGrouppNameCompare);
+
+        const secondGroupCompare = await this.page.locator(this.selector.secondGropuProduct).innerText();
+        expect(secondGroupCompare).toBe(this.expectetion.secondProductGriuoNameCompare);
 
 
+        const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first().innerText();
+        expect(firstNameOfProduct).toBe(this.expectetion.firstNameOfProductnCompare);
 
+        const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first().innerText();
+        expect(secondNameOfProduct).toBe(this.expectetion.secondNameOfProductnCompare);
+
+
+    }
 
 }
