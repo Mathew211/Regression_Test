@@ -22,7 +22,7 @@ exports.RegestrationAssertions = class RegestrationAssertions {
         this.messageFromTheCheckbox = 'Zaakceptuj, aby kontynuować';
         this.messageFromTheCheckboxSelector = '.untouched.validated .is-tiny'
         this.emailExistInDBMessage = 'Email mateuszoliszewskitest@op.pl jest zajęty'
-        this.emailExistInDBMessageSelector = '.alert-content';
+        this.emailExistInDBMessageSelector = '.is-error.spark-alert';
 
     }
 

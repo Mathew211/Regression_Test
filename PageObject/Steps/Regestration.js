@@ -75,54 +75,61 @@ exports.Regestration = class Regestration {
         await this.page.locator(this.buttonToCopyEmail).click();
     }
     async visitHome() {
-        await this.page.goto(this.homePage)
+        await this.page.goto(this.homePage);
 
     }
+
+    async slowly() {
+        await this.page.waitForTimeout(8000);
+    }
+
 
 
 
     async correctRegestration(name, surname, password) {
-        await this.tenMinutesEmail()
-        await this.visitHome()
-        await this.accountHeaderHover()
-        await this.clickOnCreatAcount()
-        await this.fillNameInpuitRegestraion(name)
-        await this.fillSurNameInpuitRegestraion(surname)
-        await this.fillEmailInpuitRegestraionByPaste()
-        await this.fillPasswordInpuitRegestraion(password)
-        await this.cheboxFormClick()
-        await this.clickRegestrationButton()
+
+        await this.tenMinutesEmail();
+        await this.visitHome();
+        await this.accountHeaderHover();
+        await this.clickOnCreatAcount();
+        await this.fillNameInpuitRegestraion(name);
+        await this.fillSurNameInpuitRegestraion(surname);
+        await this.fillEmailInpuitRegestraionByPaste();
+        await this.fillPasswordInpuitRegestraion(password);
+        await this.cheboxFormClick();
+        await this.clickRegestrationButton();
 
     }
 
-    async emailISExistInOurService(name, surname, email, password) {
-        await this.accountHeaderHover()
-        await this.clickOnCreatAcount()
-        await this.fillNameInpuitRegestraion(name)
-        await this.fillSurNameInpuitRegestraion(surname)
-        await this.fillEmailInpuitRegestraion(email)
-        await this.fillPasswordInpuitRegestraion(password)
-        await this.cheboxFormClick()
-        await this.clickRegestrationButton()
+    async emailExistInOurService(name, surname, email, password) {
+        await this.accountHeaderHover();
+        await this.clickOnCreatAcount();
+        await this.fillNameInpuitRegestraion(name);
+        await this.fillSurNameInpuitRegestraion(surname);
+        await this.fillEmailInpuitRegestraion(email);
+        await this.fillPasswordInpuitRegestraion(password);
+        await this.cheboxFormClick();
+        await this.clickRegestrationButton();
 
     }
 
     async validTooShortText(name, surname, email, password) {
-        await this.accountHeaderHover()
-        await this.clickOnCreatAcount()
-        await this.fillNameInpuitRegestraion(name)
-        await this.fillSurNameInpuitRegestraion(surname)
-        await this.fillEmailInpuitRegestraionByPaste(email)
-        await this.fillPasswordInpuitRegestraion(password)
-        await this.cheboxFormClick()
-        await this.cheboxFormClick()
+        await this.accountHeaderHover();
+        await this.clickOnCreatAcount();
+        await this.fillNameInpuitRegestraion(name);
+        await this.fillSurNameInpuitRegestraion(surname);
+        await this.fillEmailInpuitRegestraion(email);
+        await this.fillPasswordInpuitRegestraion(password);
+        await this.cheboxFormClick();
+        await this.cheboxFormClick();
+        await this.slowly();
 
     }
 
 
     async regestrationNeforeDoSomething() {
-        await this.accountHeaderHover()
-        await this.clickOnCreatAcount()
+        await this.accountHeaderHover();
+        await this.clickOnCreatAcount();
 
     }
 }

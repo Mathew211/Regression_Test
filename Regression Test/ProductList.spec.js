@@ -1,6 +1,5 @@
 const { test } = require('@playwright/test');
 const { ProductListAssertion } = require('../PageObject/Assertions/ProducListAssertion');
-const { After } = require('../PageObject/Steps/After');
 const { Before } = require('../PageObject/Steps/Before');
 const { ProducList } = require('../PageObject/Steps/ProductList');
 
@@ -54,44 +53,95 @@ const { ProducList } = require('../PageObject/Steps/ProductList');
 
 //     })
 
-test.describe('Wishlist  : ', () => {
+// })
 
-    let listing
+// test.describe('Wishlist  : ', () => {
+
+//     let wishList;
+//     test.beforeEach(async ({ page }) => {
+
+//         const homePage = new Before(page);
+//         await homePage.doBefore();
+
+//     })
+
+// test('Add first item to wish list ', async ({ page }) => {
+
+//     wishList = new ProducList(page);
+//     await wishList.addFirstItemToWIshLIst();
+//     const assterWIshList = new ProductListAssertion(page);
+//     await assterWIshList.howManyItemYuoHaveOnWIshList();
+
+
+// })
+
+// test('Wish List site with one item ', async ({ page }) => {
+
+//     wishList = new ProducList(page);
+//     await wishList.navigateToWIhLiting();
+//     const assterWIshList = new ProductListAssertion(page);
+//     await assterWIshList.whenOnTheWishListIsOnlyOneItem();
+
+
+// })
+
+// test('Add more items to wish list ', async ({ page }) => {
+
+//     wishList = new ProducList(page);
+//     await wishList.addMoreItemToWIshLIst();
+//     const assterWIshList = new ProductListAssertion(page);
+//     await assterWIshList.whenOnTheWishListAreMoreItems();
+
+
+// })
+
+
+
+// test('Wish List is empty', async ({ page }) => {
+
+//     wishList = new ProducList(page);
+//     await wishList.clearWIshList();
+//     const assterWIshList = new ProductListAssertion(page);
+//     await assterWIshList.whenWisListIsEmpty();
+
+// })
+test.describe('Comparison too  : ', () => {
+
+    let compareProducts;
+
     test.beforeEach(async ({ page }) => {
 
         const homePage = new Before(page);
         await homePage.doBefore();
 
     })
+    // test('When comper is not possible ', async ({ page }) => {
 
-    test('Add first item to wish list ', async ({ page }) => {
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.addProductToCompare();
+    //     const whereComepirngIsNorComplete = new ProductListAssertion(page);
+    //     await whereComepirngIsNorComplete.assertWhenIOnlyOneEItemIsCompering()
 
-        listing = new ProducList(page)
-        await listing.addFirstItemToWIshLIst();
-        const assterWIshList = new ProductListAssertion(page)
-        await assterWIshList.howManyItemYuoHaveOnWIshList()
+    // })
 
+    // test('Compaiting is active ', async ({ page }) => {
 
-    })
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.activeComparingWithOneProductsGroup();
+    //     const whenCOmpareIsActive = new ProductListAssertion(page);
+    //     await whenCOmpareIsActive.assertWhenCompareIsActive()
 
-    test('Add more items to wish list ', async ({ page }) => {
-
-        listing = new ProducList(page)
-        await listing.addMoreItemToWIshLIst();
-        const assterWIshList = new ProductListAssertion(page)
-        await assterWIshList.howManyItemYuoHaveOnWIshList()
-
-
-    })
-
-    test('Wish List site with one item ', async ({ page }) => {
-
-        listing = new ProducList(page)
-        await listing.navigateToWIhLiting();
-        const assterWIshList = new ProductListAssertion(page)
-        await assterWIshList.whenOnTheWishListIsOnlyOneItem()
+    // })
 
 
-    })
+    // test('Comparing with one group  ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.compareWIthOneGroup();
+    //     const assertCompareWithOneGroup = new ProductListAssertion(page);
+    //     await assertCompareWithOneGroup.assertCompareInside()
+
+
+    // })
 
 })

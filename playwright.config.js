@@ -13,20 +13,27 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './Regression Test',
   //   /* Maximum time one test can run for. */
-  timeout: 240 * 1000,
+  timeout: 180000,
+  retries: 0,
+  workers: 2,
+
+
   expect: {
     //     /**
     //      * Maximum time expect() should wait for the condition to be met.
     //      * For example in `await expect(locator).toHaveText();`
     //      */
-    // timeout: 180000
+    // timeout: 8000
   },
+
+
+
   //   /* Run tests in files in parallel */
   fullyParallel: true,
   //   /* Fail the build on CI if you accidentally left test.only in the source code. */
   //   forbidOnly: !!process.env.CI,
   //   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  // retries: process.env.CI ? 2 : 0,
   //   /* Opt out of parallel tests on CI. */
   //   workers: process.env.CI ? 1 : undefined,
   //   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -42,6 +49,7 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
   },
 
+
   /* Configure projects for major browsers */
   projects: [
     {
@@ -49,8 +57,8 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         headless: false,
-        viewport: { width: 1920, height: 1080 },
-        ignoreHTTPSErrors: true,
+        viewport: { width: 2440, height: 1080 },
+        // ignoreHTTPSErrors: true,
         video: 'on-first-retry',
       },
 
@@ -60,7 +68,7 @@ module.exports = defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: true,
+        headless: false,
         viewport: { width: 1920, height: 1080 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

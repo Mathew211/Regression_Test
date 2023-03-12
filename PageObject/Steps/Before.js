@@ -7,13 +7,14 @@ exports.Before = class Before {
 
     async visit() {
         await this.page.goto("https://www.mediaexpert.pl");
+        await this.page.waitForLoadState('networkidle')
     }
 
     async closeCookies() {
 
-        await this.page.locator(this.buttonSelector)
-        await this.page.waitForSelector(this.buttonSelector, { visible: true });
-        await this.page.click(this.buttonSelector);
+
+        await this.page.locator(this.buttonSelector).click();
+
     }
 
 

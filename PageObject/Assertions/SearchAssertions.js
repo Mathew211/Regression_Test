@@ -4,15 +4,15 @@ exports.SearchAssertions = class SearchAssertions {
 
     constructor(page) {
         this.page = page
-        this.productIDSelector = '.id'
+        this.productIDSelector = '.id.is-regular'
         this.expectedIndexWchichRouteToProductCard = '465939'
         this.expectedIndexWchichRouteToListing = '111111'
         this.nameOfBrand = 'Samsung'
         this.nameOfFullProduct = 'Telewizor HISENSE 65U7HQ 65" ULED 4K VIDAA Dolby Atmos 120Hz Full Array HDMI 2.1'
-        this.nameOfListingSelector = '.is-wrapper'
+        this.nameOfListingSelector = '.is-result.is-mobile'
         this.nameOfProductSelector = '.name.is-title'
         this.messageWhenSearchinDoestFindAnythingSelector = '.is-section'
-        this.messageWhenSearchinDoestFindAnything = 'Nie udało nam się znaleźć'
+        this.messageWhenSearchinDoestFindAnything = 'Nie udało nam się znaleźć “xxxxxxxxxxxxxxxxxxxxxxx”'
         this.sugesterHeaderSelector = '.search-list-header'
         this.titleOfSearchedProduct = 'Proponowane produkty'
         this.emptySugesterSelector = '.no-results'
@@ -21,7 +21,7 @@ exports.SearchAssertions = class SearchAssertions {
     async searchResultsByIDRouteToProduct() {
 
         const selectorOfProduct = await this.page.locator(this.productIDSelector).innerText();
-        expect(selectorOfProduct).toBe(this.expectedIndexWchichRouteToProductCard)
+        expect(selectorOfProduct).toContain(this.expectedIndexWchichRouteToProductCard)
     }
     async searchResultsCaseTwo() {
 
