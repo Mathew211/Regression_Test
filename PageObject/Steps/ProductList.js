@@ -27,6 +27,9 @@ exports.ProducList = class ProductList {
         this.linkCOmpare = '.spark-link-primary .is-small'
         this.menuCategory = '.menu-button:nth-child(2)'
         this.noteBookUR = 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy'
+        this.removeButton = '.remove-all-groups'
+        this.confirmRemoveButton = '.is-secondary.is-normal'
+        this.cancelRemoveButton = '.is-tertiary.is-normal'
 
     }
     //Steps 
@@ -180,7 +183,21 @@ exports.ProducList = class ProductList {
         await this.page.goto(this.noteBookUR);
 
     }
+    async clickToRemoveAllGropup() {
 
+        await this.page.locator(this.removeButton).click()
+
+    }
+    async confirmRemove() {
+
+        await this.page.locator(this.confirmRemoveButton).click()
+
+    }
+    async cancelRemove() {
+
+        await this.page.locator(this.cancelRemoveButton).click()
+
+    }
 
     //Case 
 
@@ -193,9 +210,7 @@ exports.ProducList = class ProductList {
     }
 
     async selectYwoCheckboxes() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+        await this.roouteToProductList()();
         await this.selectMoreThenOneCheckbox();
         await this.waitForLoad();
         await this.confirmhYourSelect();
@@ -203,19 +218,14 @@ exports.ProducList = class ProductList {
     }
 
     async cleanAllCheckBoxes() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.selectMoreThenOneCheckbox();
-        await this.confirmhYourSelect();
+        await this.selectYwoCheckboxes();
         await this.cleanCheckBoxes();
 
 
     }
     async choosenIncorrectFilter() {
 
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+        await this.roouteToProductList();
         await this.incorrectFIlter();
         await this.waitForLoad();
         await this.confirmhYourSelect();
@@ -224,9 +234,8 @@ exports.ProducList = class ProductList {
     }
 
     async addFirstItemToWIshLIst() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+
+        await this.roouteToProductList();
         await this.addToWishList();
         await this.waitForLoad();
         await this.slowly()
@@ -234,9 +243,8 @@ exports.ProducList = class ProductList {
     }
 
     async addMoreItemToWIshLIst() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+
+        await this.roouteToProductList();
         await this.addToWishList();
         await this.addNextOneItemToWishList();
         await this.waitForLoad();
@@ -247,9 +255,7 @@ exports.ProducList = class ProductList {
 
     async navigateToWIhLiting() {
 
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+        await this.roouteToProductList();
         await this.addToWishList();
         await this.waitForLoad();
         await this.navigateToWishList()
@@ -260,13 +266,7 @@ exports.ProducList = class ProductList {
 
     async clearWIshList() {
 
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
-        await this.addToWishList();
-        await this.waitForLoad();
-        await this.navigateToWishList();
-        await this.waitForLoad();
+        await this.navigateToWIhLiting()
         await this.clearWholeWishList();
         await this.waitForLoad();
         await this.slowly();
@@ -274,23 +274,18 @@ exports.ProducList = class ProductList {
     }
 
     async addProductToCompare() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
-        await this.scrollDwon()
+
+        await this.roouteToProductList();
+        await this.scrollDwon();
         await this.addFirstProductToCompare();
         await this.waitForLoad();
         await this.slowly();
     }
 
     async activeComparingWithOneProductsGroup() {
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
-        await this.scrollDwon()
-        await this.addFirstProductToCompare();
-        await this.waitForLoad();
-        await this.scrollDwon()
+
+        await this.addProductToCompare();
+        await this.scrollDwon();
         await this.addSecondProductToCompare();
         await this.waitForLoad();
         await this.slowly();
@@ -299,12 +294,7 @@ exports.ProducList = class ProductList {
 
     async compareWIthOneGroup() {
 
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
-        await this.scrollDwon()
-        await this.addFirstProductToCompare();
-        await this.scrollDwon()
+        await this.activeComparingWithOneProductsGroup();
         await this.addSecondProductToCompare();
         await this.clickCOmpareLink()
         await this.waitForLoad();
@@ -313,9 +303,7 @@ exports.ProducList = class ProductList {
 
     async compareWithTwoGroups() {
 
-        await this.menuCategoryNameHover();
-        await this.clickOnCategory();
-        await this.waitForLoad();
+        await this.roouteToProductList();
         await this.scrollDwon()
         await this.addFirstProductToCompare();
         await this.waitForLoad();
@@ -334,6 +322,17 @@ exports.ProducList = class ProductList {
         await this.clickCOmpareLink()
         await this.waitForLoad();
 
+    }
+    async removeAllFormCompareConfirmButton() {
+        await this.compareWithTwoGroups()
+        await this.clickToRemoveAllGropup()
+        await this.confirmRemove()
+    }
+
+    async removeAllFormCompareConfirmButton() {
+        await this.compareWithTwoGroups()
+        await this.clickToRemoveAllGropup()
+        await this.cancelRemove()
     }
 
 }
