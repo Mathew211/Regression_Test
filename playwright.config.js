@@ -13,9 +13,11 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './Regression Test',
   //   /* Maximum time one test can run for. */
-  timeout: 240000,
-  retries: 1,
-  workers: 2,
+  timeout: 300000,
+  //Tries
+  retries: 0,
+  //Workers 
+  workers: 4,
 
 
   expect: {
@@ -23,7 +25,7 @@ module.exports = defineConfig({
     //      * Maximum time expect() should wait for the condition to be met.
     //      * For example in `await expect(locator).toHaveText();`
     //      */
-    timeout: 16000
+    timeout: 20000
   },
 
 
@@ -56,7 +58,7 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
+        headless: false,
         viewport: { width: 2440, height: 1440 },
         // ignoreHTTPSErrors: true,
         video: 'on-first-retry',

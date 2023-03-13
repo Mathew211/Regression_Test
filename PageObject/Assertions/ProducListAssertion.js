@@ -20,16 +20,16 @@ exports.ProductListAssertion = class ProductListAssertion {
             choosenFirstChebox: '.filter-item:nth-of-type(5) .filter-child:nth-of-type(2) .spark-checkbox-icon',
             choosenSeondChebox: '.filter-item:nth-of-type(12) .filter-child:nth-of-type(1) .spark-checkbox-icon',
             emptyResults: '.empty-title',
-            containBorder: '.empty-results',
+            borderSelector: '.empty-results',
             wishListCountSelector: '#section_header-desktop .count',
-            wishListStatusTextSelector: '.dynamic-offer-wrapper.offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist , .wishlist-text',
+            wishListStatusTextSelector: '.offers-list > span:nth-of-type(1) > .offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .wishlist-text',
             onlyOneProductOnTheWishListSelector: '.title-container .spark-link',
-            firstItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(1) .name',
-            secondItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(2) .name',
+            firstItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(1) .title-container .is-small',
+            secondItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(2) .info-container .is-small',
             titleOfEmptyWishListSelector: '.is-subsection',
             oneItemIsComperingMessageSelector: '.text.is-small',
             compareIsActiveSelector: 'a > .is-small',
-            oneItmeInCompare: 'span:nth-of-type(7) > .offer-box > .content > .column-left > a > .compare-link-text.label',
+            oneItmeInCompare: 'span:nth-of-type(5) > .offer-box > .content > .column-left > a > .compare-link-text.label',
             secondIntemInCOmpare: 'span:nth-of-type(5) > .offer-box > .content > .column-left > a > .compare-link-text.label',
             compareNameProducts: '.is-subsection',
             firstGroupProduct: '.ui-tabs-navigation .ui-tabs-item:nth-of-type(1)',
@@ -38,15 +38,15 @@ exports.ProductListAssertion = class ProductListAssertion {
             secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny'
         };
 
-        this.expectetion = {
+        this.expectation = {
 
             currencyContain: 'zł',
             activeFilterTitle: 'AKTYWNE FILTRY',
             emptyResultMessage: 'Nie znaleziono produktów spełniających wybrane kryteria. Usuń część filtrów, aby zobaczyć listę produktów.',
             textAfterAddToWIshList: 'W schowku',
-            onyOneAddedProductToWishList: 'Smartfon APPLE iPhone 14 128GB 5G 6.1\" Żółty',
-            firstItemInWIshListS: 'Smartfon APPLE iPhone 14 128GB 5G 6.1\" Żółty',
-            secondAddedProductToWishList: 'Smartfon SAMSUNG Galaxy A53 6/128GB 5G 6.5\" 120Hz Czarny SM-A536',
+            onyOneAddedProductToWishList: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6\" 120Hz Niebieski PAVG0009RO',
+            firstItemInWIshListS: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6" 120Hz Niebieski PAVG0009RO',
+            secondAddedProductToWishList: 'Smartfon SAMSUNG Galaxy S23 Ultra 8/256GB 5G 6.8" 120Hz Zielony SM-S918',
             titleOfEmptyWishListMessage: 'Mój schowek jest pusty',
             oneItemIsComperingMessage: 'Min. 2 produkty aby porównać',
             borderColor: 'rgb(13, 77, 228)',
@@ -56,8 +56,8 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareNameProductsText: 'Smartfony',
             firstproductGrouppNameCompare: 'Laptopy (2)',
             secondProductGriuoNameCompare: 'Smartfony (2)',
-            firstNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
-            secondNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny'
+            firstNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
+            secondNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
 
         }
 
@@ -94,7 +94,7 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(cents).toBeTruthy();
 
         const pln = await this.page.locator(this.selector.currency).first().innerText();
-        expect(pln).toContain(this.expectetion.currencyContain)
+        expect(pln).toContain(this.expectation.currencyContain)
 
     }
 
@@ -104,7 +104,7 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(checkWebsite).toEqual(this.expectURL.afterUseFIlter);
 
         const filterActive = await this.page.locator(this.selector.whenFilterIsActive).innerText();
-        expect(filterActive).toBe(this.expectetion.activeFilterTitle);
+        expect(filterActive).toBe(this.expectation.activeFilterTitle);
 
         const isCheckedFirstOne = await this.page.locator(this.selector.activeFirstChebox);
         const firstChebox = await isCheckedFirstOne.isChecked();
@@ -135,14 +135,15 @@ exports.ProductListAssertion = class ProductListAssertion {
     async mismatchedCheckboxes() {
 
         const emptyResultTextMessage = await this.page.locator(this.selector.emptyResults).innerText();
-        expect(emptyResultTextMessage).toBe(this.expectetion.emptyResultMessage);
+        expect(emptyResultTextMessage).toBe(this.expectation.emptyResultMessage);
 
-        const borderColorStyle = await this.page.evaluate(() => {
-            const element = document.querySelector(this.selector.containBorder);
+        const borderColorSty = await this.page.evaluate((selector) => {
+            const element = document.querySelector(selector);
             const style = window.getComputedStyle(element);
             return style.borderColor;
-        });
-        expect(borderColorStyle).toBe(this.expectetion.borderColor);
+        }, this.selector.borderSelector);
+
+        expect(borderColorSty).toBe(this.expectation.borderColor);
     }
 
     async howManyItemYuoHaveOnWIshList() {
@@ -151,7 +152,7 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(wishListCounter).toEqual('1');
 
         const wishListText = await this.page.locator(this.selector.wishListStatusTextSelector).innerText();
-        expect(wishListText).toBe(this.expectetion.textAfterAddToWIshList);
+        expect(wishListText).toBe(this.expectation.textAfterAddToWIshList);
 
     }
 
@@ -161,7 +162,7 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(checkWebsite).toEqual(this.expectURL.wishList);
 
         const wishListNameProduct = await this.page.locator(this.selector.onlyOneProductOnTheWishListSelector).innerText();
-        expect(wishListNameProduct).toBe(this.expectetion.onyOneAddedProductToWishList);
+        expect(wishListNameProduct).toBe(this.expectation.onyOneAddedProductToWishList);
 
     }
     async whenOnTheWishListAreMoreItems() {
@@ -173,10 +174,10 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(wishListCounter).toEqual('2');
 
         const wishListFirstNameProduct = await this.page.locator(this.selector.firstItemInWIshListSelector).innerText();
-        expect(wishListFirstNameProduct).toBe(this.expectetion.firstItemInWIshListS);
+        expect(wishListFirstNameProduct).toBe(this.expectation.firstItemInWIshListS);
 
         const wishListSecondNameProduct = await this.page.locator(this.selector.secondItemInWIshListSelector).innerText();
-        expect(wishListSecondNameProduct).toBe(this.expectetion.secondAddedProductToWishList);
+        expect(wishListSecondNameProduct).toBe(this.expectation.secondAddedProductToWishList);
     }
     async whenWisListIsEmpty() {
 
@@ -184,22 +185,22 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(checkWebsite).toEqual(this.expectURL.wishList);
 
         const emptyWIshList = await this.page.locator(this.selector.titleOfEmptyWishListSelector).innerText();
-        expect(emptyWIshList).toBe(this.expectetion.titleOfEmptyWishListMessage);
+        expect(emptyWIshList).toBe(this.expectation.titleOfEmptyWishListMessage);
     }
 
     async assertWhenIOnlyOneEItemIsCompering() {
 
         const oneItemCompaeirng = await this.page.locator(this.selector.oneItemIsComperingMessageSelector).innerText();
-        expect(oneItemCompaeirng).toBe(this.expectetion.oneItemIsComperingMessage);
+        expect(oneItemCompaeirng).toBe(this.expectation.oneItemIsComperingMessage);
 
         const oneItemCompaeirngText = await this.page.locator(this.selector.oneItmeInCompare).innerText();
-        expect(oneItemCompaeirngText).toBe(this.expectetion.textForOneItemInCompare);
+        expect(oneItemCompaeirngText).toBe(this.expectation.textForOneItemInCompare);
 
     }
     async assertWhenCompareIsActive() {
 
         const oneItemCompaeirngText = await this.page.locator(this.selector.secondIntemInCOmpare).innerText();
-        expect(oneItemCompaeirngText).toBe(this.expectetion.textForTwoItemsInCompare);
+        expect(oneItemCompaeirngText).toBe(this.expectation.textForTwoItemsInCompare);
 
     }
     async assertCompareInside() {
@@ -208,7 +209,7 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(checkWebsite).toEqual(this.expectURL.compare);
 
         const oneItemCompaeirngText = await this.page.locator(this.selector.compareNameProducts).innerText();
-        expect(oneItemCompaeirngText).toBe(this.expectetion.compareNameProductsText);
+        expect(oneItemCompaeirngText).toBe(this.expectation.compareNameProductsText);
 
     }
 
@@ -218,17 +219,17 @@ exports.ProductListAssertion = class ProductListAssertion {
         expect(checkWebsite).toEqual(this.expectURL.compare);
 
         const firstGropuCompare = await this.page.locator(this.selector.firstGroupProduct).innerText();
-        expect(firstGropuCompare).toBe(this.expectetion.firstproductGrouppNameCompare);
+        expect(firstGropuCompare).toBe(this.expectation.firstproductGrouppNameCompare);
 
         const secondGroupCompare = await this.page.locator(this.selector.secondGropuProduct).innerText();
-        expect(secondGroupCompare).toBe(this.expectetion.secondProductGriuoNameCompare);
+        expect(secondGroupCompare).toBe(this.expectation.secondProductGriuoNameCompare);
 
 
         const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first().innerText();
-        expect(firstNameOfProduct).toBe(this.expectetion.firstNameOfProductnCompare);
+        expect(firstNameOfProduct).toBe(this.expectation.firstNameOfProductnCompare);
 
         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first().innerText();
-        expect(secondNameOfProduct).toBe(this.expectetion.secondNameOfProductnCompare);
+        expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnCompare);
 
 
     }

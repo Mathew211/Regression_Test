@@ -15,7 +15,8 @@ exports.LoginAssertions = class LoginAssertions {
         this.passwordFieldIsReqiueredSelector = '.form-password .is-tiny';
         this.incorrectEmailMessage = 'Podaj poprawny adres e-mail';
         this.incorrectEmailSekector = '.dirty .is-tiny';
-
+        this.borderColor = 'rgb(208, 0, 0)'
+        this.borderSelector = '.is-closable.is-error.spark-alert'
     }
 
     async assertLoggingWhereIsCorrect() {
@@ -27,6 +28,7 @@ exports.LoginAssertions = class LoginAssertions {
         const welcome = await this.page.locator(this.expectionsMessageSelector).innerText();
         expect(welcome).toBe(this.expectionsWelcomeMessage);
 
+
     }
 
     async assertWhenEmailIOrPasswordWrong() {
@@ -34,14 +36,13 @@ exports.LoginAssertions = class LoginAssertions {
         const inCorrectEmail = await this.page.locator(this.inCorrectTextMessageSelector).innerText();
         expect(inCorrectEmail).toBe(this.inCorrectTextMessage);
 
-        const borderColorStyle = await this.page.evaluate(() => {
-            const element = document.querySelector('.is-closable.is-error.spark-alert');
+        const borderColorStyle = await this.page.evaluate((selector) => {
+            const element = document.querySelector(selector);
             const style = window.getComputedStyle(element);
             return style.borderColor;
-        });
-        expect(borderColorStyle).toBe('rgb(208, 0, 0)');
+        }, this.borderSelector);
 
-
+        expect(borderColorStyle).toBe(this.borderColor);
 
     }
 

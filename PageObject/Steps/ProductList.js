@@ -8,14 +8,14 @@ exports.ProducList = class ProductList {
         this.nameOfCategoryMenuSecondSelector = '.menu-category-item:nth-child(6) .column:nth-child(1) .group:nth-child(1) > .group-title';
         this.nameOfAnotherCategoryMenuSelector = '.menu-category-item:nth-child(5) .item-name';
         this.nameOfAnotherCategoryMenuSecondSelector = '.menu-category-list li:nth-of-type(5) .column:nth-of-type(1) .group:nth-of-type(1) .group-links .spark-link:nth-of-type(1)'
-        this.choosenFirstChebox = ' .filter-item:nth-of-type(5) .filter-child:nth-of-type(2) .spark-checkbox-icon'
+        this.choosenFirstChebox = '.filter-item:nth-of-type(8) .is-group:nth-of-type(2) .spark-checkbox-icon'
         this.choosenSeondChebox = '.filter-item:nth-of-type(12) .filter-child:nth-of-type(1) .spark-checkbox-icon'
-        this.incorrectFilter = '.filter-child:nth-of-type(19) .spark-checkbox-icon'
+        this.incorrectFilter = '.filter-item:nth-of-type(14) .filter-child:nth-of-type(4) .spark-checkbox-icon'
         this.confirmButton = '.buttons .spark-button'
         this.clickCleanButton = '.clear.has-contrast'
         this.showMeMore = '.filter-item:nth-child(40) .show-more'
-        this.addToWIshLisFirstItem = '.dynamic-offer-wrapper.offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .wishlist-text'
-        this.addToWishListNextTime = '.offers-list > span:nth-of-type(1) > .offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .wishlist-text'
+        this.addToWIshLisFirstItem = '.offers-list > span:nth-of-type(1) > .offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .icon.icon-heart4'
+        this.addToWishListNextTime = 'span:nth-of-type(3) > .offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .icon.icon-heart4'
         this.wishListButton = 'a > .heart.icon.icon-heart4.is-desktop.utility-nav-icon'
         this.removeAllItemFromWIshList = '.icon-left.is-default.is-secondary.remove-all-btn.spark-button > span'
         this.addFirstItemCompare = 'span:nth-of-type(7) > .offer-box > .content > .column-left > a > .compare-link-text.label'
@@ -47,38 +47,41 @@ exports.ProducList = class ProductList {
     }
     async clickOnCategory() {
         await this.page.locator(this.nameOfCategoryMenuSecondSelector).hover({ force: true });
+        await this.waitForLoad();
         await this.page.locator(this.nameOfCategoryMenuSecondSelector).click();
     }
     async waitForLoad() {
-        await this.page.waitForLoadState('load');
+        await this.page.waitForLoadState('networkidle');
     }
     async waitForNavigation() {
         await this.page.waitForNavigation('load')
     }
     async slowly() {
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(6000);
     }
 
 
     async selectMoreThenOneCheckbox() {
 
         await this.page.locator(this.choosenFirstChebox).click();
+        await this.waitForLoad();
+        await this.scrollDwon()
         await this.page.locator(this.choosenSeondChebox).click();
+        await this.waitForLoad();
 
     }
+
+
+
     async incorrectFIlter() {
 
         await this.page.locator(this.choosenFirstChebox).click();
-        await this.expendList();
+        await this.waitForLoad();
+        await this.scrollDwon()
         await this.page.locator(this.incorrectFilter).click();
 
-
     }
-    async expendList() {
 
-        await this.page.locator(this.showMeMore).click();
-
-    }
 
     async confirmhYourSelect() {
 
@@ -93,9 +96,11 @@ exports.ProducList = class ProductList {
     }
 
     async addToWishList() {
+
         await this.page.locator(this.addToWIshLisFirstItem).click();
     }
     async addNextOneItemToWishList() {
+
         await this.page.locator(this.addToWishListNextTime).click();
     }
     async navigateToWishList() {
@@ -203,14 +208,13 @@ exports.ProducList = class ProductList {
 
     async roouteToProductList() {
         await this.menuCategoryNameHover();
-        await this.waitForLoad();
         await this.clickOnCategory();
         await this.waitForLoad();
 
     }
 
     async selectYwoCheckboxes() {
-        await this.roouteToProductList()();
+        await this.roouteToProductList();
         await this.selectMoreThenOneCheckbox();
         await this.waitForLoad();
         await this.confirmhYourSelect();
@@ -218,24 +222,27 @@ exports.ProducList = class ProductList {
     }
 
     async cleanAllCheckBoxes() {
+
         await this.selectYwoCheckboxes();
         await this.cleanCheckBoxes();
-
 
     }
     async choosenIncorrectFilter() {
 
         await this.roouteToProductList();
         await this.incorrectFIlter();
-        await this.waitForLoad();
+        await this.slowly()
         await this.confirmhYourSelect();
-        await this.waitForLoad();
+        await this.waitForLoad()
+        await this.slowly()
 
     }
 
     async addFirstItemToWIshLIst() {
 
         await this.roouteToProductList();
+        await this.scrollDwon();
+        await this.waitForLoad();
         await this.addToWishList();
         await this.waitForLoad();
         await this.slowly()
@@ -245,10 +252,15 @@ exports.ProducList = class ProductList {
     async addMoreItemToWIshLIst() {
 
         await this.roouteToProductList();
+        await this.scrollDwon();
         await this.addToWishList();
+        await this.waitForLoad();
+        await this.slowly();
         await this.addNextOneItemToWishList();
         await this.waitForLoad();
+        await this.slowly();
         await this.navigateToWishList()
+        await this.waitForLoad();
         await this.slowly();
 
     }
@@ -278,8 +290,8 @@ exports.ProducList = class ProductList {
         await this.roouteToProductList();
         await this.scrollDwon();
         await this.addFirstProductToCompare();
-        await this.waitForLoad();
         await this.slowly();
+
     }
 
     async activeComparingWithOneProductsGroup() {
@@ -306,7 +318,7 @@ exports.ProducList = class ProductList {
         await this.roouteToProductList();
         await this.scrollDwon()
         await this.addFirstProductToCompare();
-        await this.waitForLoad();
+        await this.slowly();
         await this.scrollDwon()
         await this.addSecondProductToCompare();
         await this.slowly();

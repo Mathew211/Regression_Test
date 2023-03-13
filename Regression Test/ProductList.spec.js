@@ -38,7 +38,6 @@ const { ProducList } = require('../PageObject/Steps/ProductList');
 
 //         listing = new ProducList(page)
 //         await listing.cleanAllCheckBoxes();
-//         const reload = new After(page);
 //         const assertFilterIsCleaned = new ProductListAssertion(page);
 //         await assertFilterIsCleaned.checkFilterIsAcitve();
 
@@ -85,26 +84,26 @@ const { ProducList } = require('../PageObject/Steps/ProductList');
 
 // })
 
-// test('Add more items to wish list ', async ({ page }) => {
+//     test('Add more items to wish list ', async ({ page }) => {
 
-//     wishList = new ProducList(page);
-//     await wishList.addMoreItemToWIshLIst();
-//     const assterWIshList = new ProductListAssertion(page);
-//     await assterWIshList.whenOnTheWishListAreMoreItems();
-
-
-// })
+//         wishList = new ProducList(page);
+//         await wishList.addMoreItemToWIshLIst();
+//         const assterWIshList = new ProductListAssertion(page);
+//         await assterWIshList.whenOnTheWishListAreMoreItems();
 
 
+//     })
+//     test('Wish List is empty', async ({ page }) => {
 
-// test('Wish List is empty', async ({ page }) => {
-
-//     wishList = new ProducList(page);
-//     await wishList.clearWIshList();
-//     const assterWIshList = new ProductListAssertion(page);
-//     await assterWIshList.whenWisListIsEmpty();
+//         wishList = new ProducList(page);
+//         await wishList.clearWIshList();
+//         const assterWIshList = new ProductListAssertion(page);
+//         await assterWIshList.whenWisListIsEmpty();
+//     })
 
 // })
+
+
 test.describe('Comparison too  : ', () => {
 
     let compareProducts;
@@ -152,6 +151,7 @@ test.describe('Comparison too  : ', () => {
         await assertCompareWithOneGroup.assertCompareInsideWithTwoGroups()
 
     })
+
 
 
 })
