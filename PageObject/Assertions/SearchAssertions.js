@@ -1,35 +1,61 @@
 
-const { test, expect } = require('@playwright/test');
+const { expect } = require('@playwright/test');
 exports.SearchAssertions = class SearchAssertions {
 
     constructor(page) {
         this.page = page
-        this.productIDSelector = '.id'
+        this.productIDSelector = '.id.is-regular'
+        this.expectedIndexWchichRouteToProductCard = '465939'
+        this.expectedIndexWchichRouteToListing = '111111'
+        this.nameOfBrand = 'Samsung'
+        this.nameOfFullProduct = 'Telewizor HISENSE 65U7HQ 65" ULED 4K VIDAA Dolby Atmos 120Hz Full Array HDMI 2.1'
+        this.nameOfListingSelector = '.is-result.is-mobile'
+        this.nameOfProductSelector = '.name.is-title'
+        this.messageWhenSearchinDoestFindAnythingSelector = '.is-section'
+        this.messageWhenSearchinDoestFindAnything = 'Nie udało nam się znaleźć “xxxxxxxxxxxxxxxxxxxxxxx”'
+        this.sugesterHeaderSelector = '.search-list-header'
+        this.titleOfSearchedProduct = 'Proponowane produkty'
+        this.emptySugesterSelector = '.no-results'
+        this.emptySugesterMessage = 'Brak wyników wyszukiwania dla podanej frazy'
     }
-    async searchResultsByID() {
+    async searchResultsByIDRouteToProduct() {
 
         const selectorOfProduct = await this.page.locator(this.productIDSelector).innerText();
-        expect(selectorOfProduct).toContain('465939')
+        expect(selectorOfProduct).toContain(this.expectedIndexWchichRouteToProductCard)
     }
     async searchResultsCaseTwo() {
 
-        const selectorofListingName = await this.page.locator('.is-wrapper').innerText();
-        expect(selectorofListingName).toContain('111111')
+        const selectorofListingName = await this.page.locator(this.nameOfListingSelector).innerText();
+        expect(selectorofListingName).toBe(this.expectedIndexWchichRouteToListing)
     }
     async searchResultsCaseThree() {
 
-        const selectorofListingName = await this.page.locator('.is-wrapper').innerText();
-        expect(selectorofListingName).toContain('Samsung')
+        const selectorofListingName = await this.page.locator(this.nameOfListingSelector).innerText();
+        expect(selectorofListingName).toBe(this.nameOfBrand)
     }
     async searchResultsCaseFour() {
 
-        const selectroProductName = await this.page.locator('.name.is-title').innerText();
-        expect(selectroProductName).toContain('Telewizor SAMSUNG QE55Q77B 55" QLED 4K 120HZ Tizen TV')
+        const selectroProductName = await this.page.locator(this.nameOfProductSelector).innerText();
+        expect(selectroProductName).toBe(this.nameOfFullProduct)
     }
     async searchResultsCaseFive() {
 
-        const selectorOfIncorectSearch = await this.page.locator('.is-section').innerText();
-        expect(selectorOfIncorectSearch).toContain('Nie udało nam się znaleźć')
+        const selectorOfIncorectSearch = await this.page.locator(this.messageWhenSearchinDoestFindAnythingSelector).innerText();
+        expect(selectorOfIncorectSearch).toBe(this.messageWhenSearchinDoestFindAnything)
+
+    }
+
+    async searchlist() {
+
+        const contaiinsearchlist = await this.page.locator(this.sugesterHeaderSelector).innerText()
+        expect(contaiinsearchlist).toBe(this.titleOfSearchedProduct)
+
+    }
+
+    async searchlistWhenIsEmpty() {
+
+        const contaiinsearchlist = await this.page.locator(this.emptySugesterSelector).innerText()
+        expect(contaiinsearchlist).toBe(this.emptySugesterMessage)
 
     }
 }

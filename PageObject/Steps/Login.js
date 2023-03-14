@@ -53,6 +53,16 @@ exports.Login = class Login {
         await this.clickLogInButton()
         await this.waitForNavigation()
         await this.Logout()
+    }
+
+    async correctLogInWithOutLogOut(email, password) {
+
+        await this.accountHeaderHover()
+        await this.clickLoginINButton()
+        await this.enterEmailAddress(email)
+        await this.enterPassword(password)
+        await this.clickLogInButton()
+        await this.waitForNavigation()
 
     }
     async wrongLogIn(email, password) {
