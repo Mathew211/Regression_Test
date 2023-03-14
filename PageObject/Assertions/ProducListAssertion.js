@@ -37,7 +37,12 @@ exports.ProductListAssertion = class ProductListAssertion {
             firstNameOfProductnCompare: '.product:nth-of-type(2) .is-tiny',
             secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny',
             firstNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(2) > a:nth-of-type(2) > .is-tiny',
-            secondNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(3) > a:nth-of-type(2) > .is-tiny'
+            secondNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(3) > a:nth-of-type(2) > .is-tiny',
+            removeComparePopUp: '.remove-compare-modal .dialog',
+            comparator: '.comparator',
+            compareDialog: '.product-compare-modal .dialog-body',
+            compareDialogTitle: '.product-compare-modal .title',
+            compareDialogDescription: '.product-compare-modal .description'
         };
 
         this.expectation = {
@@ -61,7 +66,9 @@ exports.ProductListAssertion = class ProductListAssertion {
             firstNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
             secondNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
             firstNameOfProductInSecondCompare: 'Smartfon vivo X90 PRO 12/256GB 5G 6.78\" 120Hz Czarny + Słuchawki + Ładowarka bezprzewodowa ',
-            secondNameOfProductnSecondCompare: 'Smartfon SAMSUNG Galaxy M23 4/128GB 5G 6.6\" 120Hz Niebieski SM-M236 '
+            secondNameOfProductnSecondCompare: 'Smartfon SAMSUNG Galaxy M23 4/128GB 5G 6.6\" 120Hz Niebieski SM-M236 ',
+            compareDialogTitleText: 'Nie możesz dodać więcej produktów do tego porównania',
+            compareDialogDescriptionText: 'Maksymalna ilość produktów w porównaniu to 4 produkty z tej samej kategorii.\nPrzejdź do porównywarki aby je zmodyfikować.'
 
         }
 
@@ -71,6 +78,7 @@ exports.ProductListAssertion = class ProductListAssertion {
             listing: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony',
             afterUseFIlter: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/samsung/5g_tak',
             wishList: 'https://www.mediaexpert.pl/ulubione/storage',
+            beforeRouteToCompare: 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy'
         }
     }
 
@@ -245,5 +253,57 @@ exports.ProductListAssertion = class ProductListAssertion {
         const secondNameOfProduct = await this.page.locator(this.selector.secondNameProductInCompareInSecondGroup).first().innerText();
         expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnSecondCompare);
     }
+
+    async assertRemoveCancel() {
+
+        const firstNameOfProduct = await this.page.locator(this.selector.removeComparePopUp).first();
+        const porductName = await firstNameOfProduct.isVisible();
+        expect(porductName).toBe(false);
+
+    }
+
+    async assertRemoveConfirm() {
+
+        const checkWebsite = await this.page.url();
+        expect(checkWebsite).toEqual(this.expectURL.beforeRouteToCompare);
+
+        const firstNameOfProduct = await this.page.locator(this.selector.comparator).first();
+        const porductName = await firstNameOfProduct.isVisible();
+        expect(porductName).toBe(false);
+
+    }
+
+    async assertWhenUserWantCompareTooMuch() {
+
+
+        const tooMuchCompareCalidation = await this.page.locator(this.selector.compareDialog).first();
+        const porductName = await tooMuchCompareCalidation.isVisible();
+        expect(porductName).toBe(true);
+
+        const dialogConatinTitle = await this.page.locator(this.selector.compareDialogTitle).first().innerText();
+        expect(dialogConatinTitle).toBe(this.expectation.compareDialogTitleText);
+
+        const secondNameOfProduct = await this.page.locator(this.selector.compareDialogDescription).first().innerText();
+        expect(secondNameOfProduct).toContain(this.expectation.compareDialogDescriptionText);
+
+    }
+
+    async assertWhatHappendAffterClosingPopupCompare() {
+
+        const tooMuchCompareCalidation = await this.page.locator(this.selector.compareDialog).first();
+        const porductName = await tooMuchCompareCalidation.isVisible();
+        expect(porductName).toBe(false);
+
+    }
+
+    async assertWhenUserClickMoveToCompare() {
+
+        const checkWebsite = await this.page.url();
+        expect(checkWebsite).toEqual(this.expectURL.compare);
+
+    }
+
+
+
 
 }

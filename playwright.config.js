@@ -58,7 +58,7 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: false,
+        headless: true,
         viewport: { width: 2440, height: 1440 },
         // ignoreHTTPSErrors: true,
         video: 'on-first-retry',
@@ -70,7 +70,7 @@ module.exports = defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: true,
+        headless: false,
         viewport: { width: 2440, height: 1440 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

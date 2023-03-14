@@ -152,13 +152,70 @@ test.describe('Comparison too  : ', () => {
 
     // })
 
-    test('Moving between gropus ', async ({ page }) => {
+    // test('Moving between gropus ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.movingBetweenGroups();
+    //     const assertCompareWithOneGroup = new ProductListAssertion(page);
+    //     await assertCompareWithOneGroup.assertGruopAfterMoving();
+
+    // })
+
+    // test('Compare cancel  remove between  ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.removeAllFormCompareCancelmButton();
+    //     const removeCancel = new ProductListAssertion(page);
+    //     await removeCancel.assertRemoveCancel();
+
+    // })
+
+    // test('Compare onfirm remove  nutton ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.removeAllFormCompareConfirmButton();
+    //     const removeCOnfirm = new ProductListAssertion(page);
+    //     await removeCOnfirm.assertRemoveConfirm();
+
+    // })
+
+    // test('Compare onfirm remove  nutton ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.removeAllFormCompareConfirmButton();
+    //     const removeCOnfirm = new ProductListAssertion(page);
+    //     await removeCOnfirm.assertRemoveConfirm();
+
+    // })
+
+    // test('Too much you want to compare', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.tooMuchYouWantComapre();
+    //     const outOfRangeCompare = new ProductListAssertion(page);
+    //     await outOfRangeCompare.assertWhenUserWantCompareTooMuch();
+
+    // })
+
+    // test('Closing pop up after realizzed is too much in compating', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.closeTooMuchPopIpCompare();
+    //     const closingPouUp = new ProductListAssertion(page);
+    //     await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
+
+    // })
+
+    test('Moving to compare after reach max items ', async ({ page }) => {
 
         compareProducts = new ProducList(page);
-        await compareProducts.movingBetweenGroups();
-        const assertCompareWithOneGroup = new ProductListAssertion(page);
-        await assertCompareWithOneGroup.assertGruopAfterMoving();
+        await compareProducts.tooMuchInCompareGoThere();
+        const closingPouUp = new ProductListAssertion(page);
+        await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
 
     })
 
 })
+
+
+
