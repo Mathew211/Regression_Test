@@ -35,7 +35,9 @@ exports.ProductListAssertion = class ProductListAssertion {
             firstGroupProduct: '.ui-tabs-navigation .ui-tabs-item:nth-of-type(1)',
             secondGropuProduct: '.ui-tabs-item:nth-of-type(2) .ui-tabs-link',
             firstNameOfProductnCompare: '.product:nth-of-type(2) .is-tiny',
-            secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny'
+            secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny',
+            firstNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(2) > a:nth-of-type(2) > .is-tiny',
+            secondNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(3) > a:nth-of-type(2) > .is-tiny'
         };
 
         this.expectation = {
@@ -58,6 +60,8 @@ exports.ProductListAssertion = class ProductListAssertion {
             secondProductGriuoNameCompare: 'Smartfony (2)',
             firstNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
             secondNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
+            firstNameOfProductInSecondCompare: 'Smartfon vivo X90 PRO 12/256GB 5G 6.78\" 120Hz Czarny + Słuchawki + Ładowarka bezprzewodowa ',
+            secondNameOfProductnSecondCompare: 'Smartfon SAMSUNG Galaxy M23 4/128GB 5G 6.6\" 120Hz Niebieski SM-M236 '
 
         }
 
@@ -231,7 +235,15 @@ exports.ProductListAssertion = class ProductListAssertion {
         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first().innerText();
         expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnCompare);
 
+    }
 
+    async assertGruopAfterMoving() {
+
+        const firstNameOfProduct = await this.page.locator(this.selector.firstNameProductInCompareInSecondGroup).first().innerText();
+        expect(firstNameOfProduct).toBe(this.expectation.firstNameOfProductInSecondCompare);
+
+        const secondNameOfProduct = await this.page.locator(this.selector.secondNameProductInCompareInSecondGroup).first().innerText();
+        expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnSecondCompare);
     }
 
 }

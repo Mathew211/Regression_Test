@@ -143,15 +143,22 @@ test.describe('Comparison too  : ', () => {
 
     // })
 
-    test('Comparing with two groups ', async ({ page }) => {
+    // test('Comparing with two groups ', async ({ page }) => {
+
+    //     compareProducts = new ProducList(page);
+    //     await compareProducts.compareWithTwoGroups();
+    //     const assertCompareWithOneGroup = new ProductListAssertion(page);
+    //     await assertCompareWithOneGroup.assertCompareInsideWithTwoGroups()
+
+    // })
+
+    test('Moving between gropus ', async ({ page }) => {
 
         compareProducts = new ProducList(page);
-        await compareProducts.compareWithTwoGroups();
+        await compareProducts.movingBetweenGroups();
         const assertCompareWithOneGroup = new ProductListAssertion(page);
-        await assertCompareWithOneGroup.assertCompareInsideWithTwoGroups()
+        await assertCompareWithOneGroup.assertGruopAfterMoving();
 
     })
-
-
 
 })

@@ -30,6 +30,7 @@ exports.ProducList = class ProductList {
         this.removeButton = '.remove-all-groups'
         this.confirmRemoveButton = '.is-secondary.is-normal'
         this.cancelRemoveButton = '.is-tertiary.is-normal'
+        this.movingBetween = '.ui-tabs-item:nth-of-type(2) .ui-tabs-link'
 
     }
     //Steps 
@@ -203,6 +204,11 @@ exports.ProducList = class ProductList {
         await this.page.locator(this.cancelRemoveButton).click()
 
     }
+    async moveToNextGroup() {
+
+        await this.page.locator(this.movingBetween).click()
+
+    }
 
     //Case 
 
@@ -335,16 +341,25 @@ exports.ProducList = class ProductList {
         await this.waitForLoad();
 
     }
+
+    async movingBetweenGroups() {
+        await this.compareWithTwoGroups()
+        await this.moveToNextGroup()
+        await this.waitForLoad();
+
+    }
     async removeAllFormCompareConfirmButton() {
         await this.compareWithTwoGroups()
         await this.clickToRemoveAllGropup()
         await this.confirmRemove()
+        await this.waitForLoad();
     }
 
     async removeAllFormCompareConfirmButton() {
         await this.compareWithTwoGroups()
         await this.clickToRemoveAllGropup()
         await this.cancelRemove()
+        await this.waitForLoad();
     }
 
 }
