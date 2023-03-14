@@ -1,8 +1,7 @@
-
 const { expect } = require('@playwright/test');
 
-
 exports.RegestrationAssertions = class RegestrationAssertions {
+
     constructor(page) {
         this.page = page
         this.expectedUrl = 'https://www.mediaexpert.pl/registration';

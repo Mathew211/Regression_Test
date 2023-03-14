@@ -1,5 +1,5 @@
-
 const { expect } = require('@playwright/test');
+
 exports.SearchAssertions = class SearchAssertions {
 
     constructor(page) {
