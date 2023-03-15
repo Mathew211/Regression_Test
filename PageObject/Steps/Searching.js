@@ -1,12 +1,14 @@
 exports.Searching = class Searching {
 
     constructor(page) {
+
         this.page = page
         this.searchingInputSelector = '#section_header-desktop .input-inner';
         this.searchingButtonSelector = '#section_header-desktop .search-input-button'
 
     }
 
+    //Steps
     async clickSearchingInput() {
 
         await this.page.locator(this.searchingInputSelector).click();
@@ -26,6 +28,8 @@ exports.Searching = class Searching {
     async waitForLoad() {
         await this.page.waitForLoadState('networkidle')
     }
+
+    //Case
 
     async searchingCheck(text) {
 

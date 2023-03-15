@@ -104,7 +104,7 @@ test.describe('Wishlist  : ', () => {
 })
 
 
-test.describe('Comparison too  : ', () => {
+test.describe('Comparison tools  : ', () => {
 
     let compareProducts;
 

@@ -15,6 +15,8 @@ exports.ShoppingCard = class ShoppingCard {
         this.confirmButton = '.is-secondary.is-normal span'
     }
 
+
+    //Steps 
     async waitForLoad() {
         await this.page.waitForLoadState('networkidle');
     }
@@ -62,6 +64,7 @@ exports.ShoppingCard = class ShoppingCard {
 
     }
 
+    //Case 
 
     async emptyShoppiingCard() {
 

@@ -11,6 +11,8 @@ exports.Login = class Login {
         this.LoginButton = 'button:has-text("Zaloguj się")'
         this.LogoutSlector = '.icon-left.is-secondary.is-small.spark-button'
     }
+
+    //Steps
     async accountHeaderHover() {
         await this.page.locator(this.accountHeaderSelector).hover({ force: true });
     }
@@ -44,6 +46,7 @@ exports.Login = class Login {
 
     }
 
+    //Case
     async correctLogIn(email, password) {
 
         await this.accountHeaderHover()

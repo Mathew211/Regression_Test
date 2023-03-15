@@ -58,17 +58,14 @@ test.describe('Regestration process ', () => {
 
     })
 
-    // test('Correct Process Regestration  ', async ({ page }) => {
+    test('Correct Process Regestration  ', async ({ page }) => {
 
-    //     const name = 'Test', surname = 'Test', password = 'Test123!!';
-    //     processRegestrationSuccess = new Regestration(page);
-    //     await processRegestrationSuccess.correctRegestration(name, surname, password);
-    //     const regestraionDone = new RegestrationAssertions(page);
-    //     await regestraionDone.regestraionDone();;
+        const name = 'Test', surname = 'Test', password = 'Test123!!';
+        processRegestrationSuccess = new Regestration(page);
+        await processRegestrationSuccess.correctRegestration(name, surname, password);
+        const regestraionDone = new RegestrationAssertions(page);
+        await regestraionDone.regestraionDone();;
 
-    // })
-
-
-
+    })
 
 })
