@@ -91,7 +91,7 @@ exports.ProductListAssertion = class ProductListAssertion {
 
         const imageOfProduct = await this.page.locator(this.selector.pictureIsVisable).first();
         const isVisible = await imageOfProduct.isVisible();
-        expect(isVisible).toBeTruthy();
+        expect(isVisible).toBeTruthy(); z
 
         const nameOfProduct = await this.page.locator(this.selector.nameOfProduct).first();
         const porductName = await nameOfProduct.isVisible();

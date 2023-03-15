@@ -1,0 +1,53 @@
+const { test, expect } = require('@playwright/test');
+const { ShopppingCardAssertions } = require('../PageObject/Assertions/ShoppingCardAssertions');
+const { Before } = require('../PageObject/Steps/Before');
+const { ShoppingCard } = require('../PageObject/Steps/ShoppingCard');
+
+
+
+test.describe('ShoppingCard  test ', () => {
+
+    let shoppingcard;
+
+    test.beforeEach(async ({ page }) => {
+
+        const homePage = new Before(page)
+        await homePage.doBefore();
+
+    });
+
+    // test('When shoppingcard is empty ', async ({ page }) => {
+
+    //     shoppingcard = new ShoppingCard(page)
+    //     await shoppingcard.emptyShoppiingCard()
+
+    //     shoppingcard = new ShopppingCardAssertions(page)
+    //     await shoppingcard.assertWhenShoppingCardIsEmpty();
+
+    // })
+    // test('When user add something to shopingcard ', async ({ page }) => {
+
+    //     const id = '472357'
+    //     shoppingcard = new ShoppingCard(page)
+    //     await shoppingcard.addProductToShoppingCard(id)
+
+    //     shoppingcard = new ShopppingCardAssertions(page)
+    //     await shoppingcard.assertAddingToShoppingCard();
+
+    // })
+    test('When user increase the ammount of produce out of limit ', async ({ page }) => {
+
+        const id = '472357'
+        shoppingcard = new ShoppingCard(page)
+        await shoppingcard.maxLimitForOneItem(id);
+
+        shoppingcard = new ShopppingCardAssertions(page)
+        await shoppingcard.assertWhenUserincreaseAmountProductOutOffLimit();
+
+    })
+
+
+
+
+
+})
