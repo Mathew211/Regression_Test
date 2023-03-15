@@ -11,6 +11,8 @@ exports.ShoppingCard = class ShoppingCard {
         this.goTOShoppingCard = '.is-primary.icon-right'
         this.add = '.icon-plus'
         this.minnus = '.icon-minus'
+        this.bin = '.icon-basket'
+        this.confirmButton = '.is-secondary.is-normal span'
     }
 
     async waitForLoad() {
@@ -50,6 +52,15 @@ exports.ShoppingCard = class ShoppingCard {
         await this.page.locator(this.add).click();
     }
 
+    async removeProduct() {
+
+        await this.page.locator(this.bin).click();
+    }
+    async confirmRemove() {
+
+        await this.page.locator(this.confirmButton).click()
+
+    }
 
 
     async emptyShoppiingCard() {
@@ -98,7 +109,13 @@ exports.ShoppingCard = class ShoppingCard {
 
     }
 
-    async removeFromShoppingCart() {
+    async removeFromShoppingCart(id) {
+
+        await this.addProductToShoppingCard(id)
+        await this.removeProduct();
+        await this.slowly()
+        await this.confirmRemove();
+        await this.slowly()
 
     }
 }

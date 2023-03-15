@@ -8,6 +8,7 @@ const { ShoppingCard } = require('../PageObject/Steps/ShoppingCard');
 test.describe('ShoppingCard  test ', () => {
 
     let shoppingcard;
+    let id = '472357'
 
     test.beforeEach(async ({ page }) => {
 
@@ -35,14 +36,24 @@ test.describe('ShoppingCard  test ', () => {
     //     await shoppingcard.assertAddingToShoppingCard();
 
     // })
-    test('When user increase the ammount of produce out of limit ', async ({ page }) => {
+    // test('When user increase the ammount of produce out of limit ', async ({ page }) => {
 
-        const id = '472357'
+    //     shoppingcard = new ShoppingCard(page)
+    //     await shoppingcard.maxLimitForOneItem(id);
+
+    //     shoppingcard = new ShopppingCardAssertions(page)
+    //     await shoppingcard.assertWhenUserincreaseAmountProductOutOffLimit();
+
+    // })
+
+    test('When user remove all products from shopping card ', async ({ page }) => {
+
+
         shoppingcard = new ShoppingCard(page)
-        await shoppingcard.maxLimitForOneItem(id);
+        await shoppingcard.removeFromShoppingCart(id);
 
         shoppingcard = new ShopppingCardAssertions(page)
-        await shoppingcard.assertWhenUserincreaseAmountProductOutOffLimit();
+        await shoppingcard.assertWhenUserRemoveAllProductFromShoppingCard();
 
     })
 

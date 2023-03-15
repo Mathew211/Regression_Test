@@ -12,7 +12,8 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
             shoppingProductId: '.product-code',
             counterProductInput: '.input .input-inner',
             borderSelector: '.is-closable',
-            maxammmountmessage: '.message'
+            maxammmountmessage: '.message',
+            emptyShopppingCardTittle: '.is-subsection'
         }
 
         this.expectation = {
@@ -20,7 +21,8 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
             emptyShopppingCardMessage: 'Twój koszyk jest pusty',
             productID: 'KOD PRODUKTU: 472357',
             borderColor: 'rgb(208, 0, 0)',
-            maxammmountmessage: 'Możesz dodać do koszyka maksymalnie 2 szt. produktu.\nW przypadku zainteresowania zakupami hurtowymi zapoznaj się z naszą ofertą skierowaną dla firm (B2B).'
+            maxammmountmessage: 'Możesz dodać do koszyka maksymalnie 2 szt. produktu.\nW przypadku zainteresowania zakupami hurtowymi zapoznaj się z naszą ofertą skierowaną dla firm (B2B).',
+            emptyShopppingCardTittle: 'Twój koszyk jest pusty',
         }
 
         this.expectedUrl = {
@@ -67,9 +69,14 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
 
         expect(borderColorSty).toBe(this.expectation.borderColor);
 
-        const expectedProductID = await this.page.locator(this.selector.maxammmountmessage).innerText();
-        expect(expectedProductID).toBe(this.expectation.maxammmountmessage);
+        const outOfLimitMessage = await this.page.locator(this.selector.maxammmountmessage).innerText();
+        expect(outOfLimitMessage).toBe(this.expectation.maxammmountmessage);
 
+    }
+    async assertWhenUserRemoveAllProductFromShoppingCard() {
+
+        const emptyShopCardTiltle = await this.page.locator(this.selector.emptyShopppingCardTittle).innerText();
+        expect(emptyShopCardTiltle).toBe(this.expectation.emptyShopppingCardTittle);
 
     }
 

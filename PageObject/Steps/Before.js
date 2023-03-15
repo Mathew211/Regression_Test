@@ -1,6 +1,7 @@
 exports.Before = class Before {
 
     constructor(page) {
+
         this.page = page;
         this.buttonSelector = '.cookie-wrapper .spark-button';
     }
