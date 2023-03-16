@@ -30,7 +30,6 @@ test.describe('Regestration process ', () => {
 
     })
 
-
     test('Regestration before do something', async ({ page }) => {
 
         pageRegestrationBeforeDoSomething = new Regestration(page);

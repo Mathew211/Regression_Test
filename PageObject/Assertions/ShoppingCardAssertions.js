@@ -10,7 +10,7 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
 
             shoppingToolTipActive: '.header-tooltip',
             shoppingProductId: '.product-code',
-            counterProductInput: '.input .input-inner',
+            counterProductInput: '.small.spark-input-number',
             borderSelector: '.is-closable',
             maxammmountmessage: '.message',
             emptyShopppingCardTittle: '.is-subsection'
@@ -53,10 +53,20 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
         expect(expectedProductID).toBe(this.expectation.productID);
 
     }
+    async assertWhenUserdecreaseAmountProduct() {
+
+        const ammouunt = await this.page.locator(this.selector.counterProductInput);
+        // const value = ammouunt.getAttribute()
+        expect(ammouunt).toHaveAttribute('value', '1')
+
+    }
+
     async assertWhenUserincreaseAmountProduct() {
 
-        const ammouunt = await this.page.locator(this.selector.counterProductInput).innerText();
-        expect(ammouunt).toEqual('2')
+        const ammouunt = await this.page.locator(this.selector.counterProductInput);
+        // const value = ammouunt.getAttribute()
+        expect(ammouunt).toHaveAttribute('value', '2')
+
     }
 
     async assertWhenUserincreaseAmountProductOutOffLimit() {
@@ -79,6 +89,8 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
         expect(emptyShopCardTiltle).toBe(this.expectation.emptyShopppingCardTittle);
 
     }
+
+
 
 
 

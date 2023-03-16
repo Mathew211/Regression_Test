@@ -81,7 +81,6 @@ test.describe('Wishlist  : ', () => {
         const assterWIshList = new ProductListAssertion(page);
         await assterWIshList.whenOnTheWishListIsOnlyOneItem();
 
-
     })
 
     test('Add more items to wish list ', async ({ page }) => {
@@ -131,7 +130,6 @@ test.describe('Comparison tools  : ', () => {
         await whenCOmpareIsActive.assertWhenCompareIsActive()
 
     })
-
 
     test('Comparing with one group  ', async ({ page }) => {
 

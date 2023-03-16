@@ -15,7 +15,7 @@ module.exports = defineConfig({
   //   /* Maximum time one test can run for. */
   timeout: 300000,
   //Tries
-  retries: 0,
+  retries: 1,
   //Workers 
   workers: 4,
 
@@ -58,9 +58,9 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
+        headless: false,
         viewport: { width: 2440, height: 1440 },
-        // ignoreHTTPSErrors: true,
+        ignoreHTTPSErrors: true,
         video: 'on-first-retry',
       },
 
@@ -70,7 +70,7 @@ module.exports = defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: false,
+        headless: true,
         viewport: { width: 2440, height: 1440 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

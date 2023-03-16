@@ -25,7 +25,7 @@ exports.ProductListAssertion = class ProductListAssertion {
             wishListStatusTextSelector: '.offers-list > span:nth-of-type(1) > .offer-box .icon-left.is-button-link.is-default.is-desktop.is-icon.is-show-list.spark-button.wishlist  .wishlist-text',
             onlyOneProductOnTheWishListSelector: '.title-container .spark-link',
             firstItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(1) .title-container .is-small',
-            secondItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(2) .info-container .is-small',
+            secondItemInWIshListSelector: '.wish-list .wish-list-item:nth-of-type(2) .title-container .is-small',
             titleOfEmptyWishListSelector: '.is-subsection',
             oneItemIsComperingMessageSelector: '.text.is-small',
             compareIsActiveSelector: 'a > .is-small',
@@ -53,7 +53,7 @@ exports.ProductListAssertion = class ProductListAssertion {
             textAfterAddToWIshList: 'W schowku',
             onyOneAddedProductToWishList: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6\" 120Hz Niebieski PAVG0009RO',
             firstItemInWIshListS: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6" 120Hz Niebieski PAVG0009RO',
-            secondAddedProductToWishList: 'Smartfon SAMSUNG Galaxy S23 Ultra 8/256GB 5G 6.8" 120Hz Zielony SM-S918',
+            secondAddedProductToWishList: 'Smartfon REALME C33 4/64GB 6.5\" Złoty RMX3624',
             titleOfEmptyWishListMessage: 'Mój schowek jest pusty',
             oneItemIsComperingMessage: 'Min. 2 produkty aby porównać',
             borderColor: 'rgb(13, 77, 228)',
@@ -63,10 +63,10 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareNameProductsText: 'Smartfony',
             firstproductGrouppNameCompare: 'Laptopy (2)',
             secondProductGriuoNameCompare: 'Smartfony (2)',
-            firstNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
-            secondNameOfProductnCompare: 'Laptop MAXCOM mBook 14\" IPS Celeron J4125 8GB RAM 256GB SSD Windows 10 Home',
-            firstNameOfProductInSecondCompare: 'Smartfon vivo X90 PRO 12/256GB 5G 6.78\" 120Hz Czarny + Słuchawki + Ładowarka bezprzewodowa ',
-            secondNameOfProductnSecondCompare: 'Smartfon SAMSUNG Galaxy M23 4/128GB 5G 6.6\" 120Hz Niebieski SM-M236 ',
+            firstNameOfProductnCompare: 'Laptop ASUS X515EA-BQ1445 15.6\" IPS i5-1135G7 8GB RAM 512GB SSD',
+            secondNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
+            firstNameOfProductInSecondCompare: 'Smartfon MOTOROLA Moto G73 8/256GB 5G 6.5\" 120Hz Niebieski ',
+            secondNameOfProductnSecondCompare: 'Smartfon APPLE iPhone 14 128GB 5G 6.1\" Żółty ',
             compareDialogTitleText: 'Nie możesz dodać więcej produktów do tego porównania',
             compareDialogDescriptionText: 'Maksymalna ilość produktów w porównaniu to 4 produkty z tej samej kategorii.\nPrzejdź do porównywarki aby je zmodyfikować.'
 
@@ -76,7 +76,7 @@ exports.ProductListAssertion = class ProductListAssertion {
 
             compare: 'https://www.mediaexpert.pl/compare',
             listing: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony',
-            afterUseFIlter: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/samsung/5g_tak',
+            afterUseFIlter: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/5g_tak/popularne-serie_samsung',
             wishList: 'https://www.mediaexpert.pl/ulubione/storage',
             beforeRouteToCompare: 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy'
         }
@@ -91,7 +91,7 @@ exports.ProductListAssertion = class ProductListAssertion {
 
         const imageOfProduct = await this.page.locator(this.selector.pictureIsVisable).first();
         const isVisible = await imageOfProduct.isVisible();
-        expect(isVisible).toBeTruthy(); z
+        expect(isVisible).toBeTruthy();
 
         const nameOfProduct = await this.page.locator(this.selector.nameOfProduct).first();
         const porductName = await nameOfProduct.isVisible();

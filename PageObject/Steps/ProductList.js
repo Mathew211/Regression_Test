@@ -353,6 +353,7 @@ exports.ProducList = class ProductList {
 
         await this.activeComparingWithOneProductsGroup();
         await this.addSecondProductToCompare();
+        await this.waitForLoad();
         await this.clickCOmpareLink()
         await this.waitForLoad();
 

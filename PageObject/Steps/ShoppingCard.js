@@ -53,6 +53,9 @@ exports.ShoppingCard = class ShoppingCard {
 
         await this.page.locator(this.add).click();
     }
+    async decrease() {
+        await this.page.locator(this.minnus).click();
+    }
 
     async removeProduct() {
 
@@ -87,6 +90,7 @@ exports.ShoppingCard = class ShoppingCard {
     async plsuOne(id) {
 
         await this.addProductToShoppingCard(id);
+        await this.slowly()
         await this.increase();
         await this.waitForLoad();
         await this.slowly()
@@ -101,9 +105,10 @@ exports.ShoppingCard = class ShoppingCard {
         await this.slowly()
 
     }
-    async minusOne() {
-        maxLimitForOneItem(id)
-        await this.minnus();
+    async minusOne(id) {
+        await this.maxLimitForOneItem(id)
+        await this.slowly()
+        await this.decrease();
         await this.waitForLoad();
         await this.slowly()
     }

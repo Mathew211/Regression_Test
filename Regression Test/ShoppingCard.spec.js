@@ -57,4 +57,26 @@ test.describe('ShoppingCard  test ', () => {
 
     })
 
+    test('When user increase ammoutn of product ', async ({ page }) => {
+
+
+        shoppingcard = new ShoppingCard(page)
+        await shoppingcard.plsuOne(id);
+
+        shoppingcard = new ShopppingCardAssertions(page)
+        await shoppingcard.assertWhenUserincreaseAmountProduct();
+
+    })
+
+    test('When user dencrease ammoutn of product ', async ({ page }) => {
+
+
+        shoppingcard = new ShoppingCard(page)
+        await shoppingcard.minusOne(id);
+
+        shoppingcard = new ShopppingCardAssertions(page)
+        await shoppingcard.assertWhenUserdecreaseAmountProduct();
+
+    })
+
 })
