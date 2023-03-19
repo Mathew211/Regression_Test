@@ -39,7 +39,7 @@ test.describe('Regestration process ', () => {
 
     })
 
-    test('When words into fields are too short  ', async ({ page }) => {
+    test('When text into fields are too short  ', async ({ page }) => {
         const name = 'T', surname = 'T', email = 'T', password = 'T';
         whenTooShortWordsDuringRegestration = new Regestration(page);
         await whenTooShortWordsDuringRegestration.validTooShortText(name, surname, email, password);
