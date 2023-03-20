@@ -24,6 +24,8 @@ exports.Regestration = class Regestration {
 
     }
 
+    //Steps
+
     async accountHeaderHover() {
         await this.page.locator(this.accountHoverSelector).hover({ force: true });
     }
@@ -85,7 +87,7 @@ exports.Regestration = class Regestration {
 
 
 
-
+    //Case
     async correctRegestration(name, surname, password) {
 
         await this.tenMinutesEmail();

@@ -30,7 +30,6 @@ test.describe('Regestration process ', () => {
 
     })
 
-
     test('Regestration before do something', async ({ page }) => {
 
         pageRegestrationBeforeDoSomething = new Regestration(page);
@@ -40,7 +39,7 @@ test.describe('Regestration process ', () => {
 
     })
 
-    test('When words into fields are too short  ', async ({ page }) => {
+    test('When text into fields are too short  ', async ({ page }) => {
         const name = 'T', surname = 'T', email = 'T', password = 'T';
         whenTooShortWordsDuringRegestration = new Regestration(page);
         await whenTooShortWordsDuringRegestration.validTooShortText(name, surname, email, password);
@@ -58,17 +57,14 @@ test.describe('Regestration process ', () => {
 
     })
 
-    // test('Correct Process Regestration  ', async ({ page }) => {
+    test('Correct Process Regestration  ', async ({ page }) => {
 
-    //     const name = 'Test', surname = 'Test', password = 'Test123!!';
-    //     processRegestrationSuccess = new Regestration(page);
-    //     await processRegestrationSuccess.correctRegestration(name, surname, password);
-    //     const regestraionDone = new RegestrationAssertions(page);
-    //     await regestraionDone.regestraionDone();;
+        const name = 'Test', surname = 'Test', password = 'Test123!!';
+        processRegestrationSuccess = new Regestration(page);
+        await processRegestrationSuccess.correctRegestration(name, surname, password);
+        const regestraionDone = new RegestrationAssertions(page);
+        await regestraionDone.regestraionDone();;
 
-    // })
-
-
-
+    })
 
 })

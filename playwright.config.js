@@ -15,7 +15,7 @@ module.exports = defineConfig({
   //   /* Maximum time one test can run for. */
   timeout: 300000,
   //Tries
-  retries: 0,
+  retries: 1,
   //Workers 
   workers: 4,
 
@@ -60,7 +60,7 @@ module.exports = defineConfig({
         ...devices['Desktop Chrome'],
         headless: false,
         viewport: { width: 2440, height: 1440 },
-        // ignoreHTTPSErrors: true,
+        ignoreHTTPSErrors: true,
         video: 'on-first-retry',
       },
 

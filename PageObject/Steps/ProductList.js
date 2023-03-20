@@ -31,6 +31,11 @@ exports.ProducList = class ProductList {
         this.confirmRemoveButton = '.is-secondary.is-normal'
         this.cancelRemoveButton = '.is-tertiary.is-normal'
         this.movingBetween = '.ui-tabs-item:nth-of-type(2) .ui-tabs-link'
+        this.thirdItemToCompare = 'span:nth-of-type(4) > .offer-box > .content > .column-left > a > .compare-link-text.label    '
+        this.fourthItemToCompare = 'span:nth-of-type(6) > .offer-box > .content > .column-left > a > .compare-link-text.label'
+        this.fiffthItemToCompare = 'span:nth-of-type(8) > .offer-box > .content > .column-left > a > .compare-link-text.label'
+        this.closeButtonCMaxCompare = '.too-many-offers .icon-left:nth-of-type(2)'
+        this.goToCompareButton = '.first-btn span'
 
     }
     //Steps 
@@ -61,7 +66,6 @@ exports.ProducList = class ProductList {
         await this.page.waitForTimeout(6000);
     }
 
-
     async selectMoreThenOneCheckbox() {
 
         await this.page.locator(this.choosenFirstChebox).click();
@@ -72,8 +76,6 @@ exports.ProducList = class ProductList {
 
     }
 
-
-
     async incorrectFIlter() {
 
         await this.page.locator(this.choosenFirstChebox).click();
@@ -82,7 +84,6 @@ exports.ProducList = class ProductList {
         await this.page.locator(this.incorrectFilter).click();
 
     }
-
 
     async confirmhYourSelect() {
 
@@ -143,8 +144,8 @@ exports.ProducList = class ProductList {
     async addFirstProductToCompare() {
 
 
-        const fristNote = await this.page.locator(this.addFirstItemCompare)
-        await fristNote.scrollIntoViewIfNeeded();
+        const firstItem = await this.page.locator(this.addFirstItemCompare)
+        await firstItem.scrollIntoViewIfNeeded();
         await this.page.waitForSelector(this.addFirstItemCompare, { timeout: 5000 });
         await this.page.locator(this.addFirstItemCompare).click();
 
@@ -152,19 +153,17 @@ exports.ProducList = class ProductList {
 
     async addSecondProductToCompare() {
 
-        const fristNote = await this.page.locator(this.addSecondItemCompare)
-        await fristNote.scrollIntoViewIfNeeded();
-        await this.page.waitForSelector(this.addSecondItemCompare, { timeout: 5000 });
         await this.page.locator(this.addSecondItemCompare).click();
+        // await this.page.waitForSelector(this.addSecondItemCompare, { timeout: 5000 });
+        // await this.page.locator(this.addSecondItemCompare).click();
 
     }
 
     async addFirstProductToCompareFromAnothereGroup() {
 
-        const fristNote = await this.page.locator(this.addFirstItemCompareFromAnotherCategory)
-        await fristNote.scrollIntoViewIfNeeded();
-        await this.page.waitForSelector(this.addFirstItemCompareFromAnotherCategory, { timeout: 5000 });
         await this.page.locator(this.addFirstItemCompareFromAnotherCategory).click();
+        // await this.page.waitForSelector(this.addFirstItemCompareFromAnotherCategory, { timeout: 5000 });
+        // await this.page.locator(this.addFirstItemCompareFromAnotherCategory).click();
 
 
     }
@@ -210,6 +209,28 @@ exports.ProducList = class ProductList {
 
     }
 
+
+    async tooMuchToCOmpare() {
+
+        await this.addFirstProductToCompare()
+        await this.slowly()
+        await this.addSecondProductToCompare()
+        await this.slowly()
+        await this.page.locator(this.thirdItemToCompare).click();
+        await this.slowly()
+        await this.page.locator(this.fourthItemToCompare).click();
+        await this.slowly()
+        await this.page.locator(this.fiffthItemToCompare).click();
+        await this.slowly()
+    }
+    async clouseMaxComparePopUp() {
+        await this.page.locator(this.closeButtonCMaxCompare).click();
+
+    }
+    async goToCompareByClickInButton() {
+        await this.page.locator(this.goToCompareButton).click();
+
+    }
     //Case 
 
     async roouteToProductList() {
@@ -299,6 +320,24 @@ exports.ProducList = class ProductList {
         await this.slowly();
 
     }
+    async tooMuchYouWantComapre() {
+        await this.roouteToProductList();
+        await this.scrollDwon()
+        await this.tooMuchToCOmpare();
+        await this.slowly();
+    }
+
+    async closeTooMuchPopIpCompare() {
+        await this.tooMuchYouWantComapre();
+        await this.clouseMaxComparePopUp();
+        await this.slowly();
+    }
+
+    async tooMuchInCompareGoThere() {
+        await this.tooMuchYouWantComapre();
+        await this.goToCompareByClickInButton()
+        await this.slowly();
+    }
 
     async activeComparingWithOneProductsGroup() {
 
@@ -314,6 +353,7 @@ exports.ProducList = class ProductList {
 
         await this.activeComparingWithOneProductsGroup();
         await this.addSecondProductToCompare();
+        await this.waitForLoad();
         await this.clickCOmpareLink()
         await this.waitForLoad();
 
@@ -348,18 +388,23 @@ exports.ProducList = class ProductList {
         await this.waitForLoad();
 
     }
-    async removeAllFormCompareConfirmButton() {
+
+    async removeAllFormCompareCancelmButton() {
         await this.compareWithTwoGroups()
         await this.clickToRemoveAllGropup()
-        await this.confirmRemove()
+        await this.slowly();
+        await this.cancelRemove()
+        await this.slowly();
         await this.waitForLoad();
     }
 
     async removeAllFormCompareConfirmButton() {
         await this.compareWithTwoGroups()
         await this.clickToRemoveAllGropup()
-        await this.cancelRemove()
+        await this.confirmRemove()
+        await this.slowly();
         await this.waitForLoad();
     }
+
 
 }
