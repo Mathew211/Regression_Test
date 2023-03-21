@@ -26,7 +26,7 @@ test.describe('ShoppingCard  test ', () => {
         await shoppingcard.assertWhenShoppingCardIsEmpty();
 
     })
-    test('When user add something to shopingcard ', async ({ page }) => {
+    test('When user add something to shoppingcard ', async ({ page }) => {
 
         const id = '472357'
         shoppingcard = new ShoppingCard(page)

@@ -24,7 +24,7 @@ test.describe('Productlsit : ', () => {
 
     })
 
-    test('Using filter on the listing   ', async ({ page }) => {
+    test('Using filter on the listing ', async ({ page }) => {
 
         listing = new ProducList(page)
         await listing.selectYwoCheckboxes();

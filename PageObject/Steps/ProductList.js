@@ -384,6 +384,7 @@ exports.ProducList = class ProductList {
 
     async movingBetweenGroups() {
         await this.compareWithTwoGroups()
+        await this.waitForLoad();
         await this.moveToNextGroup()
         await this.waitForLoad();
 
