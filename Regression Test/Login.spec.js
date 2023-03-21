@@ -18,9 +18,9 @@ test.describe('Login process ', () => {
         await homePage.visit()
     })
 
-    test('When login is correct ', async ({ page }) => {
-        const email = 'mateuszoliszewskitest@op.pl'
-        const password = 'Testy123!!'
+    test('When login process is correct ', async ({ page }) => {
+        const email = 'testaccount1@test.pl'
+        const password = 'Test123!!'
         const correctLoginProcess = new Login(page)
         await correctLoginProcess.correctLogIn(email, password)
         const correctLogin = new LoginAssertions(page)
@@ -28,7 +28,7 @@ test.describe('Login process ', () => {
 
     })
     test('When login/password is wrong ', async ({ page }) => {
-        const email = 'mateuszoliszewkitest@op.pl'
+        const email = 'testaccount1@test.pl'
         const password = 'Testy23!!'
         const wrongPasswordOrEmail = new Login(page);
         await wrongPasswordOrEmail.wrongLogIn(email, password);

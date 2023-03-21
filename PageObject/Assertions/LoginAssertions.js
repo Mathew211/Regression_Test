@@ -5,7 +5,7 @@ exports.LoginAssertions = class LoginAssertions {
     constructor(page) {
         this.page = page
         this.expectedUrl = 'https://www.mediaexpert.pl/profile';
-        this.expectionsWelcomeMessage = 'Witaj Mateusz Oliszewski';
+        this.expectionsWelcomeMessage = 'Witaj Test Account';
         this.expectionsMessageSelector = '.headline.is-subsection';
         this.inCorrectTextMessage = 'Nieprawidłowa nazwa użytkownika lub hasło.';
         this.inCorrectTextMessageSelector = '.alert-content';
@@ -21,13 +21,11 @@ exports.LoginAssertions = class LoginAssertions {
 
     async assertLoggingWhereIsCorrect() {
 
-
         const checkWebsite = await this.page.url();
         expect(checkWebsite).toEqual(this.expectedUrl);
 
         const welcome = await this.page.locator(this.expectionsMessageSelector).innerText();
         expect(welcome).toBe(this.expectionsWelcomeMessage);
-
 
     }
 

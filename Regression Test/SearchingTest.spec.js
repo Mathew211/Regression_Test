@@ -32,7 +32,7 @@ test.describe('Searching  status ', () => {
 
     })
 
-    test('Searchign by ID bu route is on the product card ', async ({ page }) => {
+    test('Searchign by ID but route is on the product card ', async ({ page }) => {
         const id = '465939'
         searchingCheck = new Searching(page);
         await searchingCheck.searchingCheck(id)

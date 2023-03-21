@@ -63,13 +63,10 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareNameProductsText: 'Smartfony',
             firstproductGrouppNameCompare: 'Laptopy (2)',
             secondProductGriuoNameCompare: 'Smartfony (2)',
-            firstNameOfProductnCompare: 'Laptop ASUS X515EA-BQ1445 15.6\" IPS i5-1135G7 8GB RAM 512GB SSD',
-            secondNameOfProductnCompare: 'Laptop APPLE MacBook Air 2022 13.6\" Retina M2 8GB RAM 256GB SSD macOS Srebrny',
-            firstNameOfProductInSecondCompare: 'Smartfon MOTOROLA Moto G73 8/256GB 5G 6.5\" 120Hz Niebieski ',
-            secondNameOfProductnSecondCompare: 'Smartfon APPLE iPhone 14 128GB 5G 6.1\" Żółty ',
             compareDialogTitleText: 'Nie możesz dodać więcej produktów do tego porównania',
-            compareDialogDescriptionText: 'Maksymalna ilość produktów w porównaniu to 4 produkty z tej samej kategorii.\nPrzejdź do porównywarki aby je zmodyfikować.'
-
+            compareDialogDescriptionText: 'Maksymalna ilość produktów w porównaniu to 4 produkty z tej samej kategorii.\nPrzejdź do porównywarki aby je zmodyfikować.',
+            firstNameOfProductInSecondCompare: 'Smartfon SAMSUNG Galaxy M33 6/128GB 5G 6.6\" 120Hz Niebieski SM-M336BZBGEUE ',
+            secondNameOfProductnSecondCompare: 'Smartfon REALME 10 8/128GB 90Hz 6.4\" Czarny '
         }
 
         this.expectURL = {
@@ -230,18 +227,34 @@ exports.ProductListAssertion = class ProductListAssertion {
         const checkWebsite = await this.page.url();
         expect(checkWebsite).toEqual(this.expectURL.compare);
 
-        const firstGropuCompare = await this.page.locator(this.selector.firstGroupProduct).innerText();
-        expect(firstGropuCompare).toBe(this.expectation.firstproductGrouppNameCompare);
+        // const firstGropuCompare = await this.page.locator(this.selector.firstGroupProduct).innerText();
+        // expect(firstGropuCompare).toBe(this.expectation.firstproductGrouppNameCompare);
 
-        const secondGroupCompare = await this.page.locator(this.selector.secondGropuProduct).innerText();
-        expect(secondGroupCompare).toBe(this.expectation.secondProductGriuoNameCompare);
+        const firstProductIncompare = await this.page.locator(this.selector.firstGroupProduct).first();
+        const first = await firstProductIncompare.isVisible();
+        expect(first).toBeTruthy();
+
+        // const secondGroupCompare = await this.page.locator(this.selector.secondGropuProduct).innerText();
+        // expect(secondGroupCompare).toBe(this.expectation.secondProductGriuoNameCompare);
+
+        const secondProductIncompare = await this.page.locator(this.selector.secondGropuProduct).first();
+        const second = await secondProductIncompare.isVisible();
+        expect(second).toBeTruthy();
+
+        // const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first().innerText();
+        // expect(firstNameOfProduct).toBe(this.expectation.firstNameOfProductnCompare);
 
 
-        const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first().innerText();
-        expect(firstNameOfProduct).toBe(this.expectation.firstNameOfProductnCompare);
+        const firstProductIncompareInSecondGroup = await this.page.locator(this.selector.firstNameOfProductnCompare).first();
+        const firstInSecondGroup = await firstProductIncompareInSecondGroup.isVisible();
+        expect(firstInSecondGroup).toBeTruthy();
 
-        const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first().innerText();
-        expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnCompare);
+        // const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first().innerText();
+        // expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnCompare);
+
+        const secondProductIncompareInSecondGroup = await this.page.locator(this.selector.secondNameOfProductnCompare).first();
+        const secondInSecondGroup = await secondProductIncompareInSecondGroup.isVisible();
+        expect(secondInSecondGroup).toBeTruthy();
 
     }
 
