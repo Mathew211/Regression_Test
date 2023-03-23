@@ -307,8 +307,9 @@ exports.ProducList = class ProductList {
 
         await this.navigateToWIhLiting()
         await this.clearWholeWishList();
-        await this.waitForLoad();
         await this.slowly();
+        await this.waitForLoad();
+
 
     }
 

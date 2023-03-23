@@ -21,7 +21,7 @@ exports.ShoppingCard = class ShoppingCard {
         await this.page.waitForLoadState('networkidle');
     }
     async slowly() {
-        await this.page.waitForTimeout(6000);
+        await this.page.waitForTimeout(7000);
     }
 
     async clickOnTheShopppingCard() {
@@ -90,10 +90,11 @@ exports.ShoppingCard = class ShoppingCard {
     async plsuOne(id) {
 
         await this.addProductToShoppingCard(id);
-        await this.slowly()
+        await this.waitForLoad();
         await this.increase();
         await this.waitForLoad();
         await this.slowly()
+
 
     }
 
@@ -104,13 +105,15 @@ exports.ShoppingCard = class ShoppingCard {
         await this.waitForLoad();
         await this.slowly()
 
+
+
     }
     async minusOne(id) {
-        await this.maxLimitForOneItem(id)
-        await this.slowly()
+        await this.plsuOne(id)
         await this.decrease();
         await this.waitForLoad();
         await this.slowly()
+
     }
 
     async selectSomeServices() {
