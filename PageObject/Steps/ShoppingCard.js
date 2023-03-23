@@ -13,6 +13,7 @@ exports.ShoppingCard = class ShoppingCard {
         this.minnus = '.icon-minus'
         this.bin = '.icon-basket'
         this.confirmButton = '.is-secondary.is-normal span'
+        this.counterAmmunt = '.quantity > [max]'
     }
 
 
@@ -52,9 +53,15 @@ exports.ShoppingCard = class ShoppingCard {
     async increase() {
 
         await this.page.locator(this.add).click();
+        await this.page.waitForSelector(this.counterAmmunt);
+
     }
     async decrease() {
+
         await this.page.locator(this.minnus).click();
+        await this.page.waitForSelector(this.counterAmmunt);
+
+
     }
 
     async removeProduct() {
@@ -63,7 +70,7 @@ exports.ShoppingCard = class ShoppingCard {
     }
     async confirmRemove() {
 
-        await this.page.locator(this.confirmButton).click()
+        await this.page.locator(this.confirmButton).click();
 
     }
 
@@ -71,7 +78,7 @@ exports.ShoppingCard = class ShoppingCard {
 
     async emptyShoppiingCard() {
 
-        await this.clickOnTheShopppingCard()
+        await this.clickOnTheShopppingCard();
 
     }
 
@@ -90,10 +97,9 @@ exports.ShoppingCard = class ShoppingCard {
     async plsuOne(id) {
 
         await this.addProductToShoppingCard(id);
-        await this.waitForLoad();
         await this.increase();
+        await this.page.waitForSelector(this.counterAmmunt);
         await this.waitForLoad();
-        await this.slowly()
 
 
     }
@@ -103,16 +109,18 @@ exports.ShoppingCard = class ShoppingCard {
         await this.plsuOne(id);
         await this.increase();
         await this.waitForLoad();
-        await this.slowly()
+        await this.slowly();
+
 
 
 
     }
     async minusOne(id) {
-        await this.plsuOne(id)
+        await this.plsuOne(id);
         await this.decrease();
+        await this.page.waitForSelector(this.counterAmmunt);
         await this.waitForLoad();
-        await this.slowly()
+
 
     }
 
@@ -122,11 +130,11 @@ exports.ShoppingCard = class ShoppingCard {
 
     async removeFromShoppingCart(id) {
 
-        await this.addProductToShoppingCard(id)
+        await this.addProductToShoppingCard(id);
         await this.removeProduct();
-        await this.slowly()
+        await this.slowly();
         await this.confirmRemove();
-        await this.slowly()
+        await this.slowly();
 
     }
 }

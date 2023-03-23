@@ -10,7 +10,7 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
 
             shoppingToolTipActive: '.header-tooltip',
             shoppingProductId: '.product-code',
-            counterProductInput: '.small.spark-input-number',
+            counterProductInput: '.quantity > [max]',
             borderSelector: '.is-closable',
             maxammmountmessage: '.message',
             emptyShopppingCardTittle: '.is-subsection'
@@ -55,17 +55,27 @@ exports.ShopppingCardAssertions = class ShopppingCardAssertions {
     }
     async assertWhenUserdecreaseAmountProduct() {
 
-        const ammouunt = await this.page.locator(this.selector.counterProductInput);
-        // const value = ammouunt.getAttribute()
-        expect(ammouunt).toHaveAttribute('value', '1')
+        // const ammouunt = await this.page.locator(this.selector.counterProductInput);
+        // // const value = ammouunt.getAttribute()
+        // expect(ammouunt).toHaveAttribute('value', '1')
+
+
+        const decressProduct = await this.page.waitForSelector(this.selector.counterProductInput);
+        const value = await decressProduct.getAttribute('value');
+        expect(value).toBe('1');
 
     }
 
     async assertWhenUserincreaseAmountProduct() {
 
-        const ammouunt = await this.page.locator(this.selector.counterProductInput);
-        // const value = ammouunt.getAttribute()
-        expect(ammouunt).toHaveAttribute('value', '2')
+        // const ammouunt = await this.page.locator(this.selector.counterProductInput);
+        // // const value = ammouunt.getAttribute()
+        // expect(ammouunt).toHaveAttribute('value', '2')
+
+        const incressProduct = await this.page.waitForSelector(this.selector.counterProductInput);
+        const value = await incressProduct.getAttribute('value');
+        expect(value).toBe('2');
+
 
     }
 
