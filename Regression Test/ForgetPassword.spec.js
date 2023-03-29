@@ -1,7 +1,7 @@
 const { test } = require('@playwright/test');
 const { ForgetPasswordAssertions } = require('../PageObject/Assertions/ForgetPasswordAssertions');
-const { Before } = require('../PageObject/Steps/Before');
-const { ForgetPassword } = require('../PageObject/Steps/ForgetPassword');
+const { Before } = require('../PageObject/Pages/Before');
+const { ForgetPassword } = require('../PageObject/Pages/ForgetPassword');
 
 
 test.describe('Remind process ', () => {

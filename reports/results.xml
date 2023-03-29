@@ -1,2 +1,10 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="0.0014100000001490117">
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="31.93794299999997">
+<testsuite name="ProductList.spec.js" timestamp="1680027610023" hostname="" tests="1" failures="0" skipped="0" time="29.752" errors="0">
+<testcase name="Productlsit :  Using filter on the listing " classname="[chromium] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="29.752">
+</testcase>
+</testsuite>
+<testsuite name="ProductList.spec.js" timestamp="1680027610023" hostname="" tests="1" failures="0" skipped="0" time="30.415" errors="0">
+<testcase name="Productlsit :  Using filter on the listing " classname="[firefox] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="30.415">
+</testcase>
+</testsuite>
 </testsuites>

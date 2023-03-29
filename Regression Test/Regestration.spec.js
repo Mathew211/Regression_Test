@@ -1,8 +1,8 @@
 const { test } = require('@playwright/test');
 const { RegestrationAssertions } = require('../PageObject/Assertions/RegestrationAssertions');
-const { After } = require('../PageObject/Steps/After');
-const { Before } = require('../PageObject/Steps/Before');
-const { Regestration } = require('../PageObject/Steps/Regestration');
+const { After } = require('../PageObject/Pages/After');
+const { Before } = require('../PageObject/Pages/Before');
+const { Regestration } = require('../PageObject/Pages/Regestration');
 
 
 
