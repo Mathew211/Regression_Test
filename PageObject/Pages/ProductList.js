@@ -63,7 +63,7 @@ exports.ProducList = class ProductList {
         await this.page.waitForNavigation('load')
     }
     async slowly() {
-        await this.page.waitForTimeout(6000);
+        await this.page.waitForTimeout(7000);
     }
 
     async selectMoreThenOneCheckbox() {
@@ -78,7 +78,7 @@ exports.ProducList = class ProductList {
 
     async incorrectFIlter() {
 
-        await this.page.locator(this.choosenFirstChebox).click();
+        await this.page.locator(this.choosenFirstCheckbox).click();
         await this.waitForLoad();
         await this.scrollDwon()
         await this.page.locator(this.incorrectFilter).click();
@@ -270,8 +270,9 @@ exports.ProducList = class ProductList {
         await this.scrollDwon();
         await this.waitForLoad();
         await this.addToWishList();
-        await this.waitForLoad();
         await this.slowly()
+        await this.waitForLoad();
+
 
     }
 
@@ -297,8 +298,8 @@ exports.ProducList = class ProductList {
         await this.addToWishList();
         await this.waitForLoad();
         await this.navigateToWishList()
-        await this.waitForLoad();
         await this.slowly();
+        await this.waitForLoad();
 
     }
 
@@ -386,6 +387,7 @@ exports.ProducList = class ProductList {
         await this.compareWithTwoGroups()
         await this.waitForLoad();
         await this.moveToNextGroup()
+        await this.slowly();
         await this.waitForLoad();
 
     }

@@ -6,7 +6,7 @@ module.exports = defineConfig({
   testDir: './Regression Test',
 
   // Liczba prób powtórzenia testów w razie niepowodzenia
-  retries: 2,
+  retries: 1,
 
   // Liczba wątków do uruchamiania testów
   workers: 4,
@@ -41,7 +41,7 @@ module.exports = defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: false,
+        headless: true,
         viewport: { width: 1920, height: 1080 },
         ignoreHTTPSErrors: true,
         video: 'on-first-retry',

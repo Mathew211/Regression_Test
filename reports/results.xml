@@ -1,10 +1,150 @@
-<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="31.93794299999997">
-<testsuite name="ProductList.spec.js" timestamp="1680027610023" hostname="" tests="1" failures="0" skipped="0" time="29.752" errors="0">
-<testcase name="Productlsit :  Using filter on the listing " classname="[chromium] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="29.752">
+<testsuites id="" name="" tests="36" failures="0" skipped="36" errors="0" time="26.977070999994876">
+<testsuite name="ProductList.spec.js" timestamp="1680651862442" hostname="" tests="18" failures="0" skipped="18" time="103.922" errors="0">
+<testcase name="Productlsit :  Listing route  " classname="[chromium] › ProductList.spec.js › Productlsit :  › Listing route  " time="25.976">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Using filter on the listing " classname="[chromium] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="25.976">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[chromium] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="25.98">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Mismatched checkboxes " classname="[chromium] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="25.99">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Add first item to wish list " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Wishlist with one item " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Add more items to wishlist " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Wishlist is empty" classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  When compare is not possible " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing is active " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing with one group  " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing with two groups " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Cancel remove button" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Confirm remove  button " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Too much you want to compare" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="ProductList.spec.js" timestamp="1680027610023" hostname="" tests="1" failures="0" skipped="0" time="30.415" errors="0">
-<testcase name="Productlsit :  Using filter on the listing " classname="[firefox] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="30.415">
+<testsuite name="ProductList.spec.js" timestamp="1680651862442" hostname="" tests="18" failures="0" skipped="18" time="0" errors="0">
+<testcase name="Productlsit :  Listing route  " classname="[firefox] › ProductList.spec.js › Productlsit :  › Listing route  " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Using filter on the listing " classname="[firefox] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[firefox] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Productlsit :  Mismatched checkboxes " classname="[firefox] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Add first item to wish list " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Wishlist with one item " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Add more items to wishlist " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Wishlist  :  Wishlist is empty" classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  When compare is not possible " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing is active " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing with one group  " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Comparing with two groups " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Cancel remove button" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Confirm remove  button " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Too much you want to compare" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

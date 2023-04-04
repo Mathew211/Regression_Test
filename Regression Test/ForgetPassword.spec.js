@@ -28,7 +28,7 @@ test.describe('Remind process ', () => {
         await remindisCorrect.remindIsCorrect()
 
     })
-    test('When user write wrong email address', async ({ page }) => {
+    test('When user writes wrong email address', async ({ page }) => {
         reimindProcessIsNotCorrect = new ForgetPassword(page);
         await reimindProcessIsNotCorrect.remindProcessIsNotCorrect()
 
