@@ -8,8 +8,8 @@ exports.ProducList = class ProductList {
         this.nameOfCategoryMenuSecondSelector = '.menu-category-item:nth-child(6) .column:nth-child(1) .group:nth-child(1) > .group-title';
         this.nameOfAnotherCategoryMenuSelector = '.menu-category-item:nth-child(5) .item-name';
         this.nameOfAnotherCategoryMenuSecondSelector = '.menu-category-list li:nth-of-type(5) .column:nth-of-type(1) .group:nth-of-type(1) .group-links .spark-link:nth-of-type(1)'
-        this.choosenFirstChebox = '.filter-item:nth-of-type(8) .is-group:nth-of-type(2) .spark-checkbox-icon'
-        this.choosenSeondChebox = '.filter-item:nth-of-type(12) .filter-child:nth-of-type(1) .spark-checkbox-icon'
+        this.choosenFirstCheckbox = '.filter-item:nth-of-type(8) .is-group:nth-of-type(2) .spark-checkbox-icon'
+        this.choosenSeondCheckbox = '.filter-item:nth-of-type(12) .filter-child:nth-of-type(1) .spark-checkbox-icon'
         this.incorrectFilter = '.filter-item:nth-of-type(14) .filter-child:nth-of-type(4) .spark-checkbox-icon'
         this.confirmButton = '.buttons .spark-button'
         this.clickCleanButton = '.clear.has-contrast'
@@ -63,22 +63,22 @@ exports.ProducList = class ProductList {
         await this.page.waitForNavigation('load')
     }
     async slowly() {
-        await this.page.waitForTimeout(6000);
+        await this.page.waitForTimeout(7000);
     }
 
     async selectMoreThenOneCheckbox() {
 
-        await this.page.locator(this.choosenFirstChebox).click();
+        await this.page.locator(this.choosenFirstCheckbox).click();
         await this.waitForLoad();
         await this.scrollDwon()
-        await this.page.locator(this.choosenSeondChebox).click();
+        await this.page.locator(this.choosenSeondCheckbox).click();
         await this.waitForLoad();
 
     }
 
     async incorrectFIlter() {
 
-        await this.page.locator(this.choosenFirstChebox).click();
+        await this.page.locator(this.choosenFirstCheckbox).click();
         await this.waitForLoad();
         await this.scrollDwon()
         await this.page.locator(this.incorrectFilter).click();
@@ -240,17 +240,16 @@ exports.ProducList = class ProductList {
 
     }
 
-    async selectYwoCheckboxes() {
+    async chooseYourFilters() {
         await this.roouteToProductList();
         await this.selectMoreThenOneCheckbox();
-        await this.waitForLoad();
         await this.confirmhYourSelect();
         await this.waitForLoad();
     }
 
     async cleanAllCheckBoxes() {
 
-        await this.selectYwoCheckboxes();
+        await this.chooseYourFilters();
         await this.cleanCheckBoxes();
 
     }
@@ -271,8 +270,9 @@ exports.ProducList = class ProductList {
         await this.scrollDwon();
         await this.waitForLoad();
         await this.addToWishList();
-        await this.waitForLoad();
         await this.slowly()
+        await this.waitForLoad();
+
 
     }
 
@@ -298,8 +298,8 @@ exports.ProducList = class ProductList {
         await this.addToWishList();
         await this.waitForLoad();
         await this.navigateToWishList()
-        await this.waitForLoad();
         await this.slowly();
+        await this.waitForLoad();
 
     }
 
@@ -325,18 +325,21 @@ exports.ProducList = class ProductList {
         await this.roouteToProductList();
         await this.scrollDwon()
         await this.tooMuchToCOmpare();
+        await this.waitForLoad();
         await this.slowly();
     }
 
     async closeTooMuchPopIpCompare() {
         await this.tooMuchYouWantComapre();
         await this.clouseMaxComparePopUp();
+        await this.waitForLoad();
         await this.slowly();
     }
 
     async tooMuchInCompareGoThere() {
         await this.tooMuchYouWantComapre();
         await this.goToCompareByClickInButton()
+        await this.waitForLoad();
         await this.slowly();
     }
 
@@ -379,6 +382,7 @@ exports.ProducList = class ProductList {
         await this.addSecondProductToCompareFromAnothereGroup();
         await this.slowly();
         await this.clickCOmpareLink()
+        await this.slowly();
         await this.waitForLoad();
 
     }
@@ -388,6 +392,7 @@ exports.ProducList = class ProductList {
         await this.waitForLoad();
         await this.moveToNextGroup()
         await this.waitForLoad();
+        await this.slowly();
 
     }
 

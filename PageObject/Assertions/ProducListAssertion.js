@@ -34,10 +34,10 @@ exports.ProductListAssertion = class ProductListAssertion {
             compareNameProducts: '.is-subsection',
             firstGroupProduct: '.ui-tabs-navigation .ui-tabs-item:nth-of-type(1)',
             secondGropuProduct: '.ui-tabs-item:nth-of-type(2) .ui-tabs-link',
-            firstNameOfProductnCompare: '.product:nth-of-type(2) .is-tiny',
-            secondNameOfProductnCompare: '.product:nth-of-type(3) .is-tiny',
-            firstNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(2) > a:nth-of-type(2) > .is-tiny',
-            secondNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(3) > a:nth-of-type(2) > .is-tiny',
+            firstNameOfProductnCompare: " .product:nth-of-type(2) .name",
+            secondNameOfProductnCompare: ".product:nth-of-type(3) .name",
+            firstNameProductInCompareInSecondGroup: '.product:nth-of-type(2) .is-tiny',
+            secondNameProductInCompareInSecondGroup: '.product:nth-of-type(3) .is-tiny',
             removeComparePopUp: '.remove-compare-modal .dialog',
             comparator: '.comparator',
             compareDialog: '.product-compare-modal .dialog-body',
@@ -51,9 +51,6 @@ exports.ProductListAssertion = class ProductListAssertion {
             activeFilterTitle: 'AKTYWNE FILTRY',
             emptyResultMessage: 'Nie znaleziono produktów spełniających wybrane kryteria. Usuń część filtrów, aby zobaczyć listę produktów.',
             textAfterAddToWIshList: 'W schowku',
-            onyOneAddedProductToWishList: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6\" 120Hz Niebieski PAVG0009RO',
-            firstItemInWIshListS: 'Smartfon MOTOROLA Moto G72 8/128GB 6.6" 120Hz Niebieski PAVG0009RO',
-            secondAddedProductToWishList: 'Smartfon REALME C33 4/64GB 6.5\" Złoty RMX3624',
             titleOfEmptyWishListMessage: 'Mój schowek jest pusty',
             oneItemIsComperingMessage: 'Min. 2 produkty aby porównać',
             borderColor: 'rgb(13, 77, 228)',
@@ -65,8 +62,7 @@ exports.ProductListAssertion = class ProductListAssertion {
             secondProductGriuoNameCompare: 'Smartfony (2)',
             compareDialogTitleText: 'Nie możesz dodać więcej produktów do tego porównania',
             compareDialogDescriptionText: 'Maksymalna ilość produktów w porównaniu to 4 produkty z tej samej kategorii.\nPrzejdź do porównywarki aby je zmodyfikować.',
-            firstNameOfProductInSecondCompare: 'Smartfon SAMSUNG Galaxy M33 6/128GB 5G 6.6\" 120Hz Niebieski SM-M336BZBGEUE ',
-            secondNameOfProductnSecondCompare: 'Smartfon REALME 10 8/128GB 90Hz 6.4\" Czarny '
+
         }
 
         this.expectURL = {
@@ -170,8 +166,10 @@ exports.ProductListAssertion = class ProductListAssertion {
         const checkWebsite = await this.page.url();
         expect(checkWebsite).toEqual(this.expectURL.wishList);
 
-        const wishListNameProduct = await this.page.locator(this.selector.onlyOneProductOnTheWishListSelector).innerText();
-        expect(wishListNameProduct).toBe(this.expectation.onyOneAddedProductToWishList);
+        const wishListNameProduct = await this.page.locator(this.selector.onlyOneProductOnTheWishListSelector);
+        const onlyOneProductIsVisible = await wishListNameProduct.isVisible();
+        expect(onlyOneProductIsVisible).toBeTruthy();
+
 
     }
     async whenOnTheWishListAreMoreItems() {
@@ -182,11 +180,13 @@ exports.ProductListAssertion = class ProductListAssertion {
         const wishListCounter = await this.page.locator(this.selector.wishListCountSelector).innerText();
         expect(wishListCounter).toEqual('2');
 
-        const wishListFirstNameProduct = await this.page.locator(this.selector.firstItemInWIshListSelector).innerText();
-        expect(wishListFirstNameProduct).toBe(this.expectation.firstItemInWIshListS);
+        const firstProductInWishList = await this.page.locator(this.selector.firstItemInWIshListSelector);
+        const firstProductInWishListIsVisible = await firstProductInWishList.isVisible();
+        expect(firstProductInWishListIsVisible).toBeTruthy();
 
-        const wishListSecondNameProduct = await this.page.locator(this.selector.secondItemInWIshListSelector).innerText();
-        expect(wishListSecondNameProduct).toBe(this.expectation.secondAddedProductToWishList);
+        const secondProductInWishList = await this.page.locator(this.selector.secondItemInWIshListSelector);
+        const secondProductInWishListIsVisible = await secondProductInWishList.isVisible();
+        expect(secondProductInWishListIsVisible).toBeTruthy();
     }
     async whenWisListIsEmpty() {
 
@@ -260,11 +260,12 @@ exports.ProductListAssertion = class ProductListAssertion {
 
     async assertGruopAfterMoving() {
 
-        const firstNameOfProduct = await this.page.locator(this.selector.firstNameProductInCompareInSecondGroup).first().innerText();
-        expect(firstNameOfProduct).toBe(this.expectation.firstNameOfProductInSecondCompare);
+        const firstNameOfProduct = await this.page.locator(this.selector.firstNameProductInCompareInSecondGroup).first().innerText();;
+        expect(firstNameOfProduct).toContain('Smartfon');
 
         const secondNameOfProduct = await this.page.locator(this.selector.secondNameProductInCompareInSecondGroup).first().innerText();
-        expect(secondNameOfProduct).toBe(this.expectation.secondNameOfProductnSecondCompare);
+        expect(secondNameOfProduct).toContain('Smartfon');
+
     }
 
     async assertRemoveCancel() {

@@ -1,9 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { SearchAssertions } = require('../PageObject/Assertions/SearchAssertions');
 
-const { After } = require('../PageObject/Steps/After');
-const { Before } = require('../PageObject/Steps/Before');
-const { Searching } = require('../PageObject/Steps/Searching');
+const { After } = require('../PageObject/Pages/After');
+const { Before } = require('../PageObject/Pages/Before');
+const { Searching } = require('../PageObject/Pages/Searching');
 
 
 
@@ -48,7 +48,7 @@ test.describe('Searching  status ', () => {
         const asserttest = new SearchAssertions(page);
         await asserttest.searchResultsCaseTwo();
     })
-    test('Searching by brand but route is on the listing', async ({ page }) => {
+    test('Searching by brand with route on the listing', async ({ page }) => {
         const brand = 'Samsung'
         searchingCheck = new Searching(page)
         await searchingCheck.searchingCheck(brand)

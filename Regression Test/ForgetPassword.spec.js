@@ -1,7 +1,7 @@
 const { test } = require('@playwright/test');
 const { ForgetPasswordAssertions } = require('../PageObject/Assertions/ForgetPasswordAssertions');
-const { Before } = require('../PageObject/Steps/Before');
-const { ForgetPassword } = require('../PageObject/Steps/ForgetPassword');
+const { Before } = require('../PageObject/Pages/Before');
+const { ForgetPassword } = require('../PageObject/Pages/ForgetPassword');
 
 
 test.describe('Remind process ', () => {
@@ -28,7 +28,7 @@ test.describe('Remind process ', () => {
         await remindisCorrect.remindIsCorrect()
 
     })
-    test('When user write wrong email address', async ({ page }) => {
+    test('When user writes wrong email address', async ({ page }) => {
         reimindProcessIsNotCorrect = new ForgetPassword(page);
         await reimindProcessIsNotCorrect.remindProcessIsNotCorrect()
 

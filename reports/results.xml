@@ -1,2 +1,10 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="0.0014100000001490117">
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="80.09412099999935">
+<testsuite name="ProductList.spec.js" timestamp="1680718994141" hostname="" tests="1" failures="0" skipped="0" time="79.096" errors="0">
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="79.096">
+</testcase>
+</testsuite>
+<testsuite name="ProductList.spec.js" timestamp="1680718994141" hostname="" tests="1" failures="0" skipped="0" time="74.876" errors="0">
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="74.876">
+</testcase>
+</testsuite>
 </testsuites>

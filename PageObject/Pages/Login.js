@@ -1,3 +1,5 @@
+const { timeout } = require("../../playwright.config");
+
 exports.Login = class Login {
     constructor(page) {
 
@@ -34,12 +36,12 @@ exports.Login = class Login {
         await this.page.locator((this.LoginButton)).click()
     }
     async waitForNavigation() {
-        await this.page.waitForNavigation();
+
+        await this.page.waitForNavigation('networkidle');
         await this.page.waitForTimeout(3000);
+
     }
-    async waitForLoad() {
-        await this.page.waitForLoadState('networkidle');
-    }
+
     async Logout() {
         await this.page.locator(this.accountHeaderSelector).hover({ force: true });
         await this.page.locator(this.LogoutSlector).click();

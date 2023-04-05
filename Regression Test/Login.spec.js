@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { LoginAssertions } = require('../PageObject/Assertions/LoginAssertions');
-const { Before } = require('../PageObject/Steps/Before');
-const { Login } = require('../PageObject/Steps/Login');
+const { Before } = require('../PageObject/Pages/Before');
+const { Login } = require('../PageObject/Pages/Login');
 
 
 

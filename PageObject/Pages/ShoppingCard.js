@@ -65,6 +65,7 @@ exports.ShoppingCard = class ShoppingCard {
     }
 
     async removeProduct() {
+        -
 
         await this.page.locator(this.bin).click();
     }
