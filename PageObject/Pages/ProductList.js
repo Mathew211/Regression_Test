@@ -391,8 +391,8 @@ exports.ProducList = class ProductList {
         await this.compareWithTwoGroups()
         await this.waitForLoad();
         await this.moveToNextGroup()
-        await this.slowly();
         await this.waitForLoad();
+        await this.slowly();
 
     }
 

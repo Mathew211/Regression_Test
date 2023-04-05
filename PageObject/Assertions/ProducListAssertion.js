@@ -36,8 +36,8 @@ exports.ProductListAssertion = class ProductListAssertion {
             secondGropuProduct: '.ui-tabs-item:nth-of-type(2) .ui-tabs-link',
             firstNameOfProductnCompare: " .product:nth-of-type(2) .name",
             secondNameOfProductnCompare: ".product:nth-of-type(3) .name",
-            firstNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(2) > a:nth-of-type(2) > .is-tiny',
-            secondNameProductInCompareInSecondGroup: '.col-3.products > div:nth-of-type(3) > a:nth-of-type(2) > .is-tiny',
+            firstNameProductInCompareInSecondGroup: '.product:nth-of-type(2) .is-tiny',
+            secondNameProductInCompareInSecondGroup: '.product:nth-of-type(3) .is-tiny',
             removeComparePopUp: '.remove-compare-modal .dialog',
             comparator: '.comparator',
             compareDialog: '.product-compare-modal .dialog-body',
@@ -260,13 +260,11 @@ exports.ProductListAssertion = class ProductListAssertion {
 
     async assertGruopAfterMoving() {
 
-        const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first();;
-        const firstProductNameIsVisible = await firstNameOfProduct.isVisible();
-        expect(firstProductNameIsVisible).toBeTruthy();
+        const firstNameOfProduct = await this.page.locator(this.selector.firstNameProductInCompareInSecondGroup).first().innerText();;
+        expect(firstNameOfProduct).toContain('Smartfon');
 
-        const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first();;
-        const secondNameOfProductIsVisible = await secondNameOfProduct.isVisible();
-        expect(secondNameOfProductIsVisible).toBeTruthy();
+        const secondNameOfProduct = await this.page.locator(this.selector.secondNameProductInCompareInSecondGroup).first().innerText();
+        expect(secondNameOfProduct).toContain('Smartfon');
 
     }
 
