@@ -48,7 +48,7 @@ test.describe('Searching  status ', () => {
         const asserttest = new SearchAssertions(page);
         await asserttest.searchResultsCaseTwo();
     })
-    test('Searching by brand but route is on the listing', async ({ page }) => {
+    test('Searching by brand with route on the listing', async ({ page }) => {
         const brand = 'Samsung'
         searchingCheck = new Searching(page)
         await searchingCheck.searchingCheck(brand)

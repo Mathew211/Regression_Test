@@ -325,18 +325,21 @@ exports.ProducList = class ProductList {
         await this.roouteToProductList();
         await this.scrollDwon()
         await this.tooMuchToCOmpare();
+        await this.waitForLoad();
         await this.slowly();
     }
 
     async closeTooMuchPopIpCompare() {
         await this.tooMuchYouWantComapre();
         await this.clouseMaxComparePopUp();
+        await this.waitForLoad();
         await this.slowly();
     }
 
     async tooMuchInCompareGoThere() {
         await this.tooMuchYouWantComapre();
         await this.goToCompareByClickInButton()
+        await this.waitForLoad();
         await this.slowly();
     }
 
@@ -379,6 +382,7 @@ exports.ProducList = class ProductList {
         await this.addSecondProductToCompareFromAnothereGroup();
         await this.slowly();
         await this.clickCOmpareLink()
+        await this.slowly();
         await this.waitForLoad();
 
     }

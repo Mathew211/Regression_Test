@@ -1,150 +1,300 @@
-<testsuites id="" name="" tests="36" failures="0" skipped="36" errors="0" time="26.977070999994876">
-<testsuite name="ProductList.spec.js" timestamp="1680651862442" hostname="" tests="18" failures="0" skipped="18" time="103.922" errors="0">
-<testcase name="Productlsit :  Listing route  " classname="[chromium] › ProductList.spec.js › Productlsit :  › Listing route  " time="25.976">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="36" failures="4" skipped="0" errors="0" time="1624.321966">
+<testsuite name="ProductList.spec.js" timestamp="1680714167028" hostname="" tests="18" failures="1" skipped="0" time="1784.979" errors="0">
+<testcase name="Productlsit :  Listing route  " classname="[chromium] › ProductList.spec.js › Productlsit :  › Listing route  " time="41.865">
 </testcase>
-<testcase name="Productlsit :  Using filter on the listing " classname="[chromium] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="25.976">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Using filter on the listing " classname="[chromium] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="55.312">
 </testcase>
-<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[chromium] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="25.98">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[chromium] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="48.691">
 </testcase>
-<testcase name="Productlsit :  Mismatched checkboxes " classname="[chromium] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="25.99">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Mismatched checkboxes " classname="[chromium] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="58.895">
 </testcase>
-<testcase name="Wishlist  :  Add first item to wish list " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Add first item to wish list " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="41.635">
 </testcase>
-<testcase name="Wishlist  :  Wishlist with one item " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Wishlist with one item " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="42.332">
 </testcase>
-<testcase name="Wishlist  :  Add more items to wishlist " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Add more items to wishlist " classname="[chromium] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="66.827">
 </testcase>
-<testcase name="Wishlist  :  Wishlist is empty" classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Wishlist is empty" classname="[chromium] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="45.713">
 </testcase>
-<testcase name="Comparison tools  :  When compare is not possible " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  When compare is not possible " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="41.481">
 </testcase>
-<testcase name="Comparison tools  :  Comparing is active " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing is active " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="44.846">
 </testcase>
-<testcase name="Comparison tools  :  Comparing with one group  " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing with one group  " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="637.187">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Comparison-tools-Comparing-with-one-group--chromium-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Comparison tools  :  Comparing with two groups " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing with two groups " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="86.101">
 </testcase>
-<testcase name="Comparison tools  :  Moving between the gropus " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="169.854">
+<failure message="ProductList.spec.js:153:5 Moving between the gropus " type="FAILURE">
+<![CDATA[  [chromium] › ProductList.spec.js:153:5 › Comparison tools  :  › Moving between the gropus  =======
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:265
+
+      263 |         const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first();;
+      264 |         const firstProductNameIsVisible = await firstNameOfProduct.isVisible();
+    > 265 |         expect(firstProductNameIsVisible).toBeTruthy();
+          |                                           ^
+      266 |
+      267 |         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first();;
+      268 |         const secondNameOfProductIsVisible = await secondNameOfProduct.isVisible();
+
+        at ProductListAssertion.assertGruopAfterMoving (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:265:43)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:158:9
+
+    Retry #1 ---------------------------------------------------------------------------------------
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:265
+
+      263 |         const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first();;
+      264 |         const firstProductNameIsVisible = await firstNameOfProduct.isVisible();
+    > 265 |         expect(firstProductNameIsVisible).toBeTruthy();
+          |                                           ^
+      266 |
+      267 |         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first();;
+      268 |         const secondNameOfProductIsVisible = await secondNameOfProduct.isVisible();
+
+        at ProductListAssertion.assertGruopAfterMoving (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:265:43)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:158:9
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results\ProductList-Comparison-tools-Moving-between-the-gropus--chromium-retry1\video.webm
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Comparison-tools-Moving-between-the-gropus--chromium-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Comparison tools  :  Cancel remove button" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Cancel remove button" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="88.859">
 </testcase>
-<testcase name="Comparison tools  :  Confirm remove  button " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Confirm remove  button " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="79.776">
 </testcase>
-<testcase name="Comparison tools  :  Too much you want to compare" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Too much you want to compare" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="66.433">
 </testcase>
-<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="79.244">
 </testcase>
-<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="89.928">
 </testcase>
 </testsuite>
-<testsuite name="ProductList.spec.js" timestamp="1680651862442" hostname="" tests="18" failures="0" skipped="18" time="0" errors="0">
-<testcase name="Productlsit :  Listing route  " classname="[firefox] › ProductList.spec.js › Productlsit :  › Listing route  " time="0">
-<skipped>
-</skipped>
+<testsuite name="ProductList.spec.js" timestamp="1680714167028" hostname="" tests="18" failures="3" skipped="0" time="2812.393" errors="0">
+<testcase name="Productlsit :  Listing route  " classname="[firefox] › ProductList.spec.js › Productlsit :  › Listing route  " time="28.52">
 </testcase>
-<testcase name="Productlsit :  Using filter on the listing " classname="[firefox] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="0">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Using filter on the listing " classname="[firefox] › ProductList.spec.js › Productlsit :  › Using filter on the listing " time="22.701">
 </testcase>
-<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[firefox] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="0">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Cleaning cheacked checkboxes   " classname="[firefox] › ProductList.spec.js › Productlsit :  › Cleaning cheacked checkboxes   " time="28.607">
 </testcase>
-<testcase name="Productlsit :  Mismatched checkboxes " classname="[firefox] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="0">
-<skipped>
-</skipped>
+<testcase name="Productlsit :  Mismatched checkboxes " classname="[firefox] › ProductList.spec.js › Productlsit :  › Mismatched checkboxes " time="53.323">
 </testcase>
-<testcase name="Wishlist  :  Add first item to wish list " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Add first item to wish list " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add first item to wish list " time="33.629">
 </testcase>
-<testcase name="Wishlist  :  Wishlist with one item " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Wishlist with one item " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist with one item " time="68.21">
+<failure message="ProductList.spec.js:77:5 Wishlist with one item " type="FAILURE">
+<![CDATA[  [firefox] › ProductList.spec.js:77:5 › Wishlist  :  › Wishlist with one item  ====================
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:171
+
+      169 |         const wishListNameProduct = await this.page.locator(this.selector.onlyOneProductOnTheWishListSelector);
+      170 |         const onlyOneProductIsVisible = await wishListNameProduct.isVisible();
+    > 171 |         expect(onlyOneProductIsVisible).toBeTruthy();
+          |                                         ^
+      172 |
+      173 |
+      174 |     }
+
+        at ProductListAssertion.whenOnTheWishListIsOnlyOneItem (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:171:41)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:82:9
+
+    Retry #1 ---------------------------------------------------------------------------------------
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:171
+
+      169 |         const wishListNameProduct = await this.page.locator(this.selector.onlyOneProductOnTheWishListSelector);
+      170 |         const onlyOneProductIsVisible = await wishListNameProduct.isVisible();
+    > 171 |         expect(onlyOneProductIsVisible).toBeTruthy();
+          |                                         ^
+      172 |
+      173 |
+      174 |     }
+
+        at ProductListAssertion.whenOnTheWishListIsOnlyOneItem (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:171:41)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:82:9
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results\ProductList-Wishlist-Wishlist-with-one-item--firefox-retry1\video.webm
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Wishlist-Wishlist-with-one-item--firefox-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Wishlist  :  Add more items to wishlist " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Add more items to wishlist " classname="[firefox] › ProductList.spec.js › Wishlist  :  › Add more items to wishlist " time="52.081">
 </testcase>
-<testcase name="Wishlist  :  Wishlist is empty" classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="0">
-<skipped>
-</skipped>
+<testcase name="Wishlist  :  Wishlist is empty" classname="[firefox] › ProductList.spec.js › Wishlist  :  › Wishlist is empty" time="1200.024">
+<failure message="ProductList.spec.js:95:5 Wishlist is empty" type="FAILURE">
+<![CDATA[  [firefox] › ProductList.spec.js:95:5 › Wishlist  :  › Wishlist is empty ==========================
+
+    Test timeout of 600000ms exceeded.
+
+    locator.click: Target closed
+    =========================== logs ===========================
+    waiting for locator('.icon-left.is-default.is-secondary.remove-all-btn.spark-button > span')
+    ============================================================
+
+       at ..\PageObject\Pages\ProductList.js:114
+
+      112 |
+      113 |     async clearWholeWishList() {
+    > 114 |         await this.page.locator(this.removeAllItemFromWIshList).click();
+          |                                                                 ^
+      115 |     }
+      116 |
+      117 |     async scrollDwon() {
+
+        at ProductList.clearWholeWishList (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Pages\ProductList.js:114:65)
+        at ProductList.clearWIshList (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Pages\ProductList.js:309:20)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:98:9
+
+    Pending operations:
+      - locator.click at PageObject\Pages\ProductList.js:114:65
+
+
+    Retry #1 ---------------------------------------------------------------------------------------
+
+    Test timeout of 600000ms exceeded.
+
+    locator.click: Target closed
+    =========================== logs ===========================
+    waiting for locator('.icon-left.is-default.is-secondary.remove-all-btn.spark-button > span')
+    ============================================================
+
+       at ..\PageObject\Pages\ProductList.js:114
+
+      112 |
+      113 |     async clearWholeWishList() {
+    > 114 |         await this.page.locator(this.removeAllItemFromWIshList).click();
+          |                                                                 ^
+      115 |     }
+      116 |
+      117 |     async scrollDwon() {
+
+        at ProductList.clearWholeWishList (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Pages\ProductList.js:114:65)
+        at ProductList.clearWIshList (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Pages\ProductList.js:309:20)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:98:9
+
+    Pending operations:
+      - locator.click at PageObject\Pages\ProductList.js:114:65
+
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results\ProductList-Wishlist-Wishlist-is-empty-firefox-retry1\video.webm
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Wishlist-Wishlist-is-empty-firefox-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Comparison tools  :  When compare is not possible " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  When compare is not possible " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › When compare is not possible " time="25.633">
 </testcase>
-<testcase name="Comparison tools  :  Comparing is active " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing is active " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing is active " time="34.475">
 </testcase>
-<testcase name="Comparison tools  :  Comparing with one group  " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing with one group  " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with one group  " time="659.364">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Comparison-tools-Comparing-with-one-group--firefox-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Comparison tools  :  Comparing with two groups " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Comparing with two groups " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Comparing with two groups " time="64.085">
 </testcase>
-<testcase name="Comparison tools  :  Moving between the gropus " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Moving between the gropus " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="163.824">
+<failure message="ProductList.spec.js:153:5 Moving between the gropus " type="FAILURE">
+<![CDATA[  [firefox] › ProductList.spec.js:153:5 › Comparison tools  :  › Moving between the gropus  ========
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:265
+
+      263 |         const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first();;
+      264 |         const firstProductNameIsVisible = await firstNameOfProduct.isVisible();
+    > 265 |         expect(firstProductNameIsVisible).toBeTruthy();
+          |                                           ^
+      266 |
+      267 |         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first();;
+      268 |         const secondNameOfProductIsVisible = await secondNameOfProduct.isVisible();
+
+        at ProductListAssertion.assertGruopAfterMoving (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:265:43)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:158:9
+
+    Retry #1 ---------------------------------------------------------------------------------------
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+       at ..\PageObject\Assertions\ProducListAssertion.js:265
+
+      263 |         const firstNameOfProduct = await this.page.locator(this.selector.firstNameOfProductnCompare).first();;
+      264 |         const firstProductNameIsVisible = await firstNameOfProduct.isVisible();
+    > 265 |         expect(firstProductNameIsVisible).toBeTruthy();
+          |                                           ^
+      266 |
+      267 |         const secondNameOfProduct = await this.page.locator(this.selector.secondNameOfProductnCompare).first();;
+      268 |         const secondNameOfProductIsVisible = await secondNameOfProduct.isVisible();
+
+        at ProductListAssertion.assertGruopAfterMoving (C:\Users\mateu\PLaywright\Test_JS_ME\PageObject\Assertions\ProducListAssertion.js:265:43)
+        at C:\Users\mateu\PLaywright\Test_JS_ME\Regression Test\ProductList.spec.js:158:9
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results\ProductList-Comparison-tools-Moving-between-the-gropus--firefox-retry1\video.webm
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\ProductList-Comparison-tools-Moving-between-the-gropus--firefox-retry1\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Comparison tools  :  Cancel remove button" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Cancel remove button" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Cancel remove button" time="80.053">
 </testcase>
-<testcase name="Comparison tools  :  Confirm remove  button " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Confirm remove  button " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Confirm remove  button " time="95.249">
 </testcase>
-<testcase name="Comparison tools  :  Too much you want to compare" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Too much you want to compare" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Too much you want to compare" time="63.762">
 </testcase>
-<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Closing pop up after realizzed is too much in compating" classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Closing pop up after realizzed is too much in compating" time="64.956">
 </testcase>
-<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="0">
-<skipped>
-</skipped>
+<testcase name="Comparison tools  :  Moving to compare after reach max items " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving to compare after reach max items " time="73.897">
 </testcase>
 </testsuite>
 </testsuites>
