@@ -15,92 +15,92 @@ test.describe('Productlsit : ', () => {
 
     })
 
-    // test('Listing route  ', async ({ page }) => {
+    test('Listing route  ', async ({ page }) => {
 
-    //     listing = new ProducList(page);
-    //     await listing.roouteToProductList();
-    //     const listingAssertion = new ProductListAssertion(page);
-    //     await listingAssertion.productListRoutingAssertion()
+        listing = new ProducList(page);
+        await listing.roouteToProductList();
+        const listingAssertion = new ProductListAssertion(page);
+        await listingAssertion.productListRoutingAssertion()
 
-    // })
+    })
 
-    // test('Using filter on the listing ', async ({ page }) => {
+    test('Using filter on the listing ', async ({ page }) => {
 
-    //     listing = new ProducList(page)
-    //     await listing.chooseYourFilters();
-    //     const listinassertIsFileterActive = new ProductListAssertion(page);
-    //     await listinassertIsFileterActive.fileterIsActiveOnProductList()
+        listing = new ProducList(page)
+        await listing.chooseYourFilters();
+        const listinassertIsFileterActive = new ProductListAssertion(page);
+        await listinassertIsFileterActive.fileterIsActiveOnProductList()
 
-    // })
+    })
 
 
-    // test('Cleaning cheacked checkboxes   ', async ({ page }) => {
+    test('Cleaning cheacked checkboxes   ', async ({ page }) => {
 
-    //     listing = new ProducList(page)
-    //     await listing.cleanAllCheckBoxes();
-    //     const assertFilterIsCleaned = new ProductListAssertion(page);
-    //     await assertFilterIsCleaned.checkFilterIsAcitve();
+        listing = new ProducList(page)
+        await listing.cleanAllCheckBoxes();
+        const assertFilterIsCleaned = new ProductListAssertion(page);
+        await assertFilterIsCleaned.checkFilterIsAcitve();
 
-    // })
+    })
 
-    // test('Mismatched checkboxes ', async ({ page }) => {
+    test('Mismatched checkboxes ', async ({ page }) => {
 
-    //     listing = new ProducList(page)
-    //     await listing.choosenIncorrectFilter();
-    //     const assertMisseCheckboxes = new ProductListAssertion(page);
-    //     await assertMisseCheckboxes.mismatchedCheckboxes()
+        listing = new ProducList(page)
+        await listing.choosenIncorrectFilter();
+        const assertMisseCheckboxes = new ProductListAssertion(page);
+        await assertMisseCheckboxes.mismatchedCheckboxes()
 
-    // })
+    })
 
 })
 
-// test.describe('Wishlist  : ', () => {
+test.describe('Wishlist  : ', () => {
 
-//     let wishList;
-//     test.beforeEach(async ({ page }) => {
+    let wishList;
+    test.beforeEach(async ({ page }) => {
 
-//         const homePage = new Before(page);
-//         await homePage.doBefore();
+        const homePage = new Before(page);
+        await homePage.doBefore();
 
-//     })
+    })
 
-//     test('Add first item to wish list ', async ({ page }) => {
+    test('Add first item to wish list ', async ({ page }) => {
 
-//         wishList = new ProducList(page);
-//         await wishList.addFirstItemToWIshLIst();
-//         const assterWIshList = new ProductListAssertion(page);
-//         await assterWIshList.howManyItemYuoHaveOnWIshList();
-
-
-//     })
-
-//     test('Wishlist with one item ', async ({ page }) => {
-
-//         wishList = new ProducList(page);
-//         await wishList.navigateToWIhLiting();
-//         const assterWIshList = new ProductListAssertion(page);
-//         await assterWIshList.whenOnTheWishListIsOnlyOneItem();
-
-//     })
-
-//     test('Add more items to wishlist ', async ({ page }) => {
-
-//         wishList = new ProducList(page);
-//         await wishList.addMoreItemToWIshLIst();
-//         const assterWIshList = new ProductListAssertion(page);
-//         await assterWIshList.whenOnTheWishListAreMoreItems();
+        wishList = new ProducList(page);
+        await wishList.addFirstItemToWIshLIst();
+        const assterWIshList = new ProductListAssertion(page);
+        await assterWIshList.howManyItemYuoHaveOnWIshList();
 
 
-//     })
-//     test('Wishlist is empty', async ({ page }) => {
+    })
 
-//         wishList = new ProducList(page);
-//         await wishList.clearWIshList();
-//         const assterWIshList = new ProductListAssertion(page);
-//         await assterWIshList.whenWisListIsEmpty();
-//     })
+    test('Wishlist with one item ', async ({ page }) => {
 
-// })
+        wishList = new ProducList(page);
+        await wishList.navigateToWIhLiting();
+        const assterWIshList = new ProductListAssertion(page);
+        await assterWIshList.whenOnTheWishListIsOnlyOneItem();
+
+    })
+
+    test('Add more items to wishlist ', async ({ page }) => {
+
+        wishList = new ProducList(page);
+        await wishList.addMoreItemToWIshLIst();
+        const assterWIshList = new ProductListAssertion(page);
+        await assterWIshList.whenOnTheWishListAreMoreItems();
+
+
+    })
+    test('Wishlist is empty', async ({ page }) => {
+
+        wishList = new ProducList(page);
+        await wishList.clearWIshList();
+        const assterWIshList = new ProductListAssertion(page);
+        await assterWIshList.whenWisListIsEmpty();
+    })
+
+})
 
 
 test.describe('Comparison tools  : ', () => {
@@ -113,42 +113,42 @@ test.describe('Comparison tools  : ', () => {
         await homePage.doBefore();
 
     })
-    // test('When compare is not possible ', async ({ page }) => {
+    test('When compare is not possible ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.addProductToCompare();
-    //     const whereComepirngIsNorComplete = new ProductListAssertion(page);
-    //     await whereComepirngIsNorComplete.assertWhenIOnlyOneEItemIsCompering()
+        compareProducts = new ProducList(page);
+        await compareProducts.addProductToCompare();
+        const whereComepirngIsNorComplete = new ProductListAssertion(page);
+        await whereComepirngIsNorComplete.assertWhenIOnlyOneEItemIsCompering()
 
-    // })
+    })
 
-    // test('Comparing is active ', async ({ page }) => {
+    test('Comparing is active ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.activeComparingWithOneProductsGroup();
-    //     const whenCOmpareIsActive = new ProductListAssertion(page);
-    //     await whenCOmpareIsActive.assertWhenCompareIsActive()
+        compareProducts = new ProducList(page);
+        await compareProducts.activeComparingWithOneProductsGroup();
+        const whenCOmpareIsActive = new ProductListAssertion(page);
+        await whenCOmpareIsActive.assertWhenCompareIsActive()
 
-    // })
+    })
 
-    // test('Comparing with one group  ', async ({ page }) => {
+    test('Comparing with one group  ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.compareWIthOneGroup();
-    //     const assertCompareWithOneGroup = new ProductListAssertion(page);
-    //     await assertCompareWithOneGroup.assertCompareInside()
+        compareProducts = new ProducList(page);
+        await compareProducts.compareWIthOneGroup();
+        const assertCompareWithOneGroup = new ProductListAssertion(page);
+        await assertCompareWithOneGroup.assertCompareInside()
 
 
-    // })
+    })
 
-    // test('Comparing with two groups ', async ({ page }) => {
+    test('Comparing with two groups ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.compareWithTwoGroups();
-    //     const assertCompareWithOneGroup = new ProductListAssertion(page);
-    //     await assertCompareWithOneGroup.assertCompareInsideWithTwoGroups()
+        compareProducts = new ProducList(page);
+        await compareProducts.compareWithTwoGroups();
+        const assertCompareWithOneGroup = new ProductListAssertion(page);
+        await assertCompareWithOneGroup.assertCompareInsideWithTwoGroups()
 
-    // })
+    })
 
     test('Moving between the gropus ', async ({ page }) => {
 
@@ -159,51 +159,51 @@ test.describe('Comparison tools  : ', () => {
 
     })
 
-    // test('Cancel remove button', async ({ page }) => {
+    test('Cancel remove button', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.removeAllFormCompareCancelmButton();
-    //     const removeCancel = new ProductListAssertion(page);
-    //     await removeCancel.assertRemoveCancel();
+        compareProducts = new ProducList(page);
+        await compareProducts.removeAllFormCompareCancelmButton();
+        const removeCancel = new ProductListAssertion(page);
+        await removeCancel.assertRemoveCancel();
 
-    // })
+    })
 
-    // test('Confirm remove  button ', async ({ page }) => {
+    test('Confirm remove  button ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.removeAllFormCompareConfirmButton();
-    //     const removeCOnfirm = new ProductListAssertion(page);
-    //     await removeCOnfirm.assertRemoveConfirm();
+        compareProducts = new ProducList(page);
+        await compareProducts.removeAllFormCompareConfirmButton();
+        const removeCOnfirm = new ProductListAssertion(page);
+        await removeCOnfirm.assertRemoveConfirm();
 
-    // })
+    })
 
 
-    // test('Too much you want to compare', async ({ page }) => {
+    test('Too much you want to compare', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.tooMuchYouWantComapre();
-    //     const outOfRangeCompare = new ProductListAssertion(page);
-    //     await outOfRangeCompare.assertWhenUserWantCompareTooMuch();
+        compareProducts = new ProducList(page);
+        await compareProducts.tooMuchYouWantComapre();
+        const outOfRangeCompare = new ProductListAssertion(page);
+        await outOfRangeCompare.assertWhenUserWantCompareTooMuch();
 
-    // })
+    })
 
-    // test('Closing pop up after realizzed is too much in compating', async ({ page }) => {
+    test('Closing pop up after realizzed is too much in compating', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.closeTooMuchPopIpCompare();
-    //     const closingPouUp = new ProductListAssertion(page);
-    //     await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
+        compareProducts = new ProducList(page);
+        await compareProducts.closeTooMuchPopIpCompare();
+        const closingPouUp = new ProductListAssertion(page);
+        await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
 
-    // })
+    })
 
-    // test('Moving to compare after reach max items ', async ({ page }) => {
+    test('Moving to compare after reach max items ', async ({ page }) => {
 
-    //     compareProducts = new ProducList(page);
-    //     await compareProducts.tooMuchInCompareGoThere();
-    //     const closingPouUp = new ProductListAssertion(page);
-    //     await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
+        compareProducts = new ProducList(page);
+        await compareProducts.tooMuchInCompareGoThere();
+        const closingPouUp = new ProductListAssertion(page);
+        await closingPouUp.assertWhatHappendAffterClosingPopupCompare();
 
-    // })
+    })
 
 })
 
