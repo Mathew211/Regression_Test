@@ -11,6 +11,7 @@ exports.ForgetPasswordAssertions = class ForgetPasswordAssertions {
     }
 
     async remindIsCorrect() {
+
         const checkWebsite = await this.page.url();
         expect(checkWebsite).toEqual(this.expectedUrl);
 

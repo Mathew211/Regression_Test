@@ -1,10 +1,30 @@
-<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="80.09412099999935">
-<testsuite name="ProductList.spec.js" timestamp="1680718994141" hostname="" tests="1" failures="0" skipped="0" time="79.096" errors="0">
-<testcase name="Comparison tools  :  Moving between the gropus " classname="[chromium] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="79.096">
+<testsuites id="" name="" tests="6" failures="0" skipped="6" errors="0" time="32.86840199999977">
+<testsuite name="Registration.spec.js" timestamp="1681313672312" hostname="" tests="3" failures="0" skipped="3" time="14.25" errors="0">
+<testcase name="Registration process  Registration before do something" classname="[chromium] › Registration.spec.js › Registration process  › Registration before do something" time="4.75">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Registration process  When text into fields are too short  " classname="[chromium] › Registration.spec.js › Registration process  › When text into fields are too short  " time="4.748">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Registration process  When mail is exist in DB  " classname="[chromium] › Registration.spec.js › Registration process  › When mail is exist in DB  " time="4.752">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="ProductList.spec.js" timestamp="1680718994141" hostname="" tests="1" failures="0" skipped="0" time="74.876" errors="0">
-<testcase name="Comparison tools  :  Moving between the gropus " classname="[firefox] › ProductList.spec.js › Comparison tools  :  › Moving between the gropus " time="74.876">
+<testsuite name="Registration.spec.js" timestamp="1681313672312" hostname="" tests="3" failures="0" skipped="3" time="4.127" errors="0">
+<testcase name="Registration process  Registration before do something" classname="[firefox] › Registration.spec.js › Registration process  › Registration before do something" time="4.127">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Registration process  When text into fields are too short  " classname="[firefox] › Registration.spec.js › Registration process  › When text into fields are too short  " time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Registration process  When mail is exist in DB  " classname="[firefox] › Registration.spec.js › Registration process  › When mail is exist in DB  " time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

@@ -14,13 +14,15 @@ test.describe('Remind process ', () => {
         const homePage = new Before(page);
         await homePage.doBefore();
     });
+
     test.afterEach(async ({ page }) => {
         const homePage = new Before(page);
         await homePage.visit()
     })
 
     test('When remind process is correct', async ({ page }) => {
-        const email = 'mateuszoliszewskitest@op.pl';
+
+        const email = 'testaccount1@test.pl';
         reimindProcessCorrect = new ForgetPassword(page);
         await reimindProcessCorrect.remindProcessCorrect(email);
 
@@ -28,7 +30,9 @@ test.describe('Remind process ', () => {
         await remindisCorrect.remindIsCorrect()
 
     })
+
     test('When user writes wrong email address', async ({ page }) => {
+
         reimindProcessIsNotCorrect = new ForgetPassword(page);
         await reimindProcessIsNotCorrect.remindProcessIsNotCorrect()
 

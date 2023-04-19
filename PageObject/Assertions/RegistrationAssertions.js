@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 
-exports.RegestrationAssertions = class RegestrationAssertions {
+exports.RegistrationAssertions = class RegistrationAssertions {
 
     constructor(page) {
         this.page = page
@@ -26,7 +26,7 @@ exports.RegestrationAssertions = class RegestrationAssertions {
     }
 
 
-    async whereYouGetToRegestration() {
+    async whereYouGetToRegistration() {
 
         const checkWebsite = await this.page.url();
         expect(checkWebsite).toEqual(this.expectedUrl);
@@ -35,7 +35,7 @@ exports.RegestrationAssertions = class RegestrationAssertions {
         expect(isButtonDisabled).toBeTruthy();
     }
 
-    async regestraionDone() {
+    async registrationDone() {
 
         const firstSentenceHideNUTitle = await this.page.locator(this.thankingMessageFirstPartSelector).innerText();
         expect(firstSentenceHideNUTitle).toBe(this.thankingMessageFirstPart);
